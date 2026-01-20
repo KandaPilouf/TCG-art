@@ -1,12 +1,13 @@
 graph TD
     OPERATOR["OPERATOR"]
-    ITEM["ITEM"]
+    ITEM["CARD"]
     TAG["Tag"]
-    CATEGORY["Category"]
-    THEME["Theme"]
-    COLLECTION["COLLECTION"]
+    CATEGORY["Univers"]
+    THEME["Style"]
+    COLLECTION["DECKS"]
     MESSAGE["MESSAGE"]
-    GENRE["GENRE"]
+    COULEUR["Couleur"]
+
 
     POSSEDER(("POSSEDER"))
     ASSIGNER(("ASSIGNER"))
@@ -14,10 +15,10 @@ graph TD
     CONTENIR(("CONTENIR"))
     CATEGORISER(("CATÉGORISER"))
     THEMATISER(("THÉMATISER"))
-    GENRER(("GENRER"))
+    COLORER(("COLORER"))
 
-    ITEM -->|"1,N"| GENRER
-    GENRER -->|"0,N"| GENRE
+    ITEM -->|"1,1"| COLORER
+    COLORER -->|"0,N"| COULEUR
 
     OPERATOR -->|"0,N"| POSSEDER
     POSSEDER -->|"1,1"| COLLECTION
