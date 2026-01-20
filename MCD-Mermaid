@@ -16,7 +16,7 @@ graph TD
     THEMATISER(("THÉMATISER"))
     GENRER(("GENRER"))
 
-    ITEM -->|"1,1"| GENRER
+    ITEM -->|"1,N"| GENRER
     GENRER -->|"0,N"| GENRE
 
     OPERATOR -->|"0,N"| POSSEDER
