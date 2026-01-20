@@ -1,0 +1,38 @@
+graph TD
+    OPERATOR["OPERATOR"]
+    ITEM["ITEM"]
+    TAG["Tag"]
+    CATEGORY["Category"]
+    THEME["Theme"]
+    COLLECTION["COLLECTION"]
+    MESSAGE["MESSAGE"]
+    GENRE["GENRE"]
+
+    POSSEDER(("POSSEDER"))
+    ASSIGNER(("ASSIGNER"))
+    TAGUER(("TAGUER"))
+    CONTENIR(("CONTENIR"))
+    CATEGORISER(("CATÉGORISER"))
+    THEMATISER(("THÉMATISER"))
+    GENRER(("GENRER"))
+
+    ITEM -->|"1,1"| GENRER
+    GENRER -->|"0,N"| GENRE
+
+    OPERATOR -->|"0,N"| POSSEDER
+    POSSEDER -->|"1,1"| COLLECTION
+
+    OPERATOR -->|"0,N"| ASSIGNER
+    ASSIGNER -->|"0,1"| MESSAGE
+
+    ITEM     -->|"0,N"| TAGUER
+    TAGUER   -->|"0,N"| TAG
+
+    COLLECTION -->|"0,N"| CONTENIR
+    CONTENIR   -->|"0,N"| ITEM
+
+    ITEM -->|"1,1"| CATEGORISER
+    CATEGORISER -->|"0,N"| CATEGORY
+
+    ITEM -->|"1,1"| THEMATISER
+    THEMATISER -->|"0,N"| THEME
