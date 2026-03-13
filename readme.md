@@ -30,3 +30,10 @@
     - Profession : Enseignante en arts plastiques
     - Objectif : Explorer les cartes comme medium artistique et créer des sélections à visée pédagogique pour ses élèves
     - Situation : Introduite au monde des cartes par son fils adolescent. Novice dans les TCG, mais convaincue de la valeur artistique des illustrations. A besoin d'une interface simple et sans jargon.
+   
+  ## Analyse Concurrentielle
+
+  | Site | Navigation (1-5) | Lisibilité (1-5) | Accessibilité (1-5) | Responsive (1-5) | Points forts | Points faibles |
+|------|------------------|------------------|---------------------|------------------|--------------|----------------|
+| TCG Arena | 4 | 4 | 2 | 2 | Beau, intuitif | Pas de version mobile |
+| limitlesstcg | 2 | 2 | 4 | 4 | Rapide | Pas tres beau |
