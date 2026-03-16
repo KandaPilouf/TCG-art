@@ -31,7 +31,7 @@
   - Objectif : Explorer les cartes comme medium artistique et créer des sélections à visée pédagogique pour ses élèves
   - Situation : Introduite au monde des cartes par son fils adolescent. Novice dans les TCG, mais convaincue de la valeur artistique des illustrations. A besoin d'une interface simple et sans jargon.
 
-  # Analyse Concurrentielle
+# Analyse Concurrentielle
 
 ## Analyse qualitative
 
