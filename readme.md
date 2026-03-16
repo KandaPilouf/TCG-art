@@ -35,10 +35,10 @@
 
 ## Analyse qualitative
 
-| Site         | Navigation (1-5) | Lisibilité (1-5) | Accessibilité (1-5) | Responsive (1-5) | Points forts   | Points faibles        |
-| ------------ | ---------------- | ---------------- | ------------------- | ---------------- | -------------- | --------------------- |
-| TCG Arena    | 4                | 4                | 2                   | 2                | Beau, intuitif | Pas de version mobile |
-| limitlesstcg | 2                | 2                | 4                   | 4                | Rapide         | Pas tres beau         |
+| Site         | Navigation (1-5) | Lisibilité (1-5) | Accessibilité (1-5) | Responsive (1-5) | Points forts   | Points faibles                    |
+| ------------ | ---------------- | ---------------- | ------------------- | ---------------- | -------------- | --------------------------------- |
+| TCG Arena    | 4                | 4                | 2                   | 2                | Beau, intuitif | Pas de version mobile (verticale) |
+| limitlesstcg | 2                | 2                | 4                   | 4                | Rapide         | Pas tres beau                     |
 
 ## Analyse quantitative
 
@@ -50,3 +50,5 @@
 # Architecture
 
 ## Sitemap
+
+<img src="./assets/readme/sitemap.png" alt="site map"/>
