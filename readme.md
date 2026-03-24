@@ -52,3 +52,7 @@
 ## Sitemap
 
 <img src="./assets/readme/sitemap.png" alt="site map"/>
+
+## Figma
+
+https://www.figma.com/design/1zia3Zs5JW4G8AM0aOeb84/TCG-Art?node-id=0-1&p=f&t=JGABsouWHAjjI3N8-0
