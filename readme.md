@@ -1,4 +1,4 @@
-# TGC-art atelier 2026
+# TCG-art atelier 2026
 
 # Le projet
 
