@@ -1,5 +1,8 @@
 <?php include './component/head.html' ?>
     <main>
-      <?php include './contact.html' ?>
+      <?php
+        $page = $_GET['categorie'];
+        include $page . '.html';
+      ?>
     </main>
 <?php include './component/foot.php' ?>
