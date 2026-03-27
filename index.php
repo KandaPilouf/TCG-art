@@ -2,7 +2,7 @@
     <main>
       <?php
         $page = $_GET['categorie'];
-        include $page . '.html';
+        include $page . '.php';
       ?>
     </main>
 <?php include './component/foot.php' ?>

@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 0px 40px 0px 40px;
+}
+
+nav{
+    grid-column-start: 2;
+    grid-column-end: -1;
+
+}
+
+#nav_cta{
+    display: none;
+}
+
+ul{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    list-style: none;
+    font-size: var(--fs-xxl);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
