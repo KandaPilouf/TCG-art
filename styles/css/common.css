@@ -74,6 +74,7 @@ header nav ul a {
     color: var(--main-white);
     background-color: transparent;
     backdrop-filter: blur(10px);
+    border: 2px solid;
     border-color: var(--accent-color);
   }
 }
