@@ -1,4 +1,92 @@
-header{
-    background-color: red;
-    font-size: var(--fs-xxxl);
+/* CSS RESET */
+
+:root {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* HEADER POSITIONING */
+
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  background-color: var(--main-color);
+  padding: 10px 15px 10px 15px;
+}
+
+header nav {
+  grid-column: 8 /-1;
+  align-self: center;
+  background-color: var(--main-color);
+}
+
+/* NAV STYLING */
+
+header nav ul {
+  padding: 10px 0px 10px 0px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+#logo a svg {
+  color: var(--main-white);
+}
+
+/* NAV MOBILE VERSION */
+
+@media screen and (width <= 900px) {
+  header nav {
+    position: fixed;
+    width: 100vw;
+    bottom: 0%;
+    left: 0;
+    border-radius: 16px 16px 0px 0px;
+  }
+
+  footer {
+    display: none;
+  }
+
+  #nav_cta {
+    grid-column: 9/-1;
+    align-self: center;
+  }
+
+  #nav_cta button {
+    width: 100%;
+    height: 39px;
+    border-radius: 10px;
+    color: var(--main-white);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border-color: var(--accent-color);
+  }
+}
+
+@media screen and (width >= 900px) {
+  #nav_cta {
+    display: none;
+  }
+}
+
+@media screen and (width <= 350px) {
+  #nav_cta {
+    grid-column: 7/11;
+    align-self: center;
+  }
 }

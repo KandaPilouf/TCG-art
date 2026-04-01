@@ -27,3 +27,4 @@ $this_page = $page . '.php';
 <link rel="stylesheet" type="text/css" href=<?= "$css_dir/$styles[$this_page]" ?>>
 <link rel="stylesheet" type="text/css" href=<?= "$css_dir/typo.css" ?>>
 <link rel="stylesheet" type="text/css" href=<?= "$css_dir/common.css" ?>>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/colors.css" ?>>

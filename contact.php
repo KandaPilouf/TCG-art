@@ -1,4 +1,5 @@
     <main>
+      <h1>Contact form</h1>
       <form action="/contact">
         <label for="firstname">firstname</label>
         <input type="text" id="firstname" name="firstname" />
@@ -15,6 +16,6 @@
         <button type="submit">Envoyer</button>
       </form>
       <figure>
-        <img src="/asset/image/map.jpg" alt="map photo" />
+        <img src="#" alt="map photo" />
       </figure>
     </main>
