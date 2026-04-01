@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <?php include '/Applications/MAMP/htdocs/work/TCG-art/styles/stylesheet.php' ?>
+    <?php include './styles/stylesheet.php' ?>
   </head>
   <body>
     <header>
