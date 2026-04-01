@@ -9,6 +9,7 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--secondary-color);
 }
 
 /* HEADER POSITIONING */
@@ -17,14 +18,16 @@ header {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
-  background-color: var(--main-color);
-  padding: 10px 15px 10px 15px;
+  padding: 21px 15px 10px 21px;
 }
 
 header nav {
   grid-column: 8 /-1;
+}
+
+#logo{
+  grid-column: 1/3;
   align-self: center;
-  background-color: var(--main-color);
 }
 
 /* NAV STYLING */
@@ -47,15 +50,18 @@ header nav ul a {
   color: var(--main-white);
 }
 
+
 /* NAV MOBILE VERSION */
 
 @media screen and (width <= 900px) {
   header nav {
     position: fixed;
+    overflow: hidden;
     width: 100vw;
-    bottom: 0%;
+    top: 92vh ;
     left: 0;
     border-radius: 16px 16px 0px 0px;
+    background-color: var(--main-color);
   }
 
   footer {
@@ -87,7 +93,7 @@ header nav ul a {
 
 @media screen and (width <= 350px) {
   #nav_cta {
-    grid-column: 7/11;
+    grid-column: 9/-1;
     align-self: center;
   }
 }

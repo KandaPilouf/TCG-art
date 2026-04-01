@@ -1,9 +1,11 @@
 :root {
-  --fs-sm: clamp(0.88rem, -0.08vi + 0.9rem, 0.83rem);
+  /* FONT SIZES */
+
+  --fs-sm: clamp(0.7rem, 0.01vi + 0.7rem, 0.71rem);
   --fs-base: clamp(0.94rem, 0.11vi + 0.91rem, 1rem);
-  --fs-md: clamp(1rem, 0.36vi + 0.93rem, 1.2rem);
-  --fs-lg: clamp(1.07rem, 0.68vi + 0.93rem, 1.44rem);
-  --fs-xl: clamp(1.14rem, 1.07vi + 0.92rem, 1.73rem);
-  --fs-xxl: clamp(1.22rem, 1.56vi + 0.9rem, 2.07rem);
-  --fs-xxxl: clamp(1.3rem, 2.17vi + 0.86rem, 2.49rem);
+  --fs-md: clamp(1.25rem, 0.28vi + 1.19rem, 1.41rem);
+  --fs-lg: clamp(1.67rem, 0.57vi + 1.54rem, 2rem);
+  --fs-xl: clamp(2.22rem, 1.04vi + 1.99rem, 2.83rem);
+  --fs-xxl: clamp(2.96rem, 1.79vi + 2.57rem, 4rem);
+  --fs-xxxl: clamp(3.95rem, 2.94vi + 3.3rem, 5.65rem);
 }

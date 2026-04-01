@@ -1,0 +1,16 @@
+:root{
+  --h1-font: "Bebas Neue";
+  --subtitle-font : "DM Sans"
+}
+
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(../../assets/fonts/BebasNeue-Regular.ttf);
+  font-display: block;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url(../../assets/fonts/DMSans-VariableFont_opsz\,wght.ttf);
+}

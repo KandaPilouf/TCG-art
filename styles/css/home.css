@@ -1,3 +1,32 @@
-h1{
-    color: pink ;
+h1 {
+  color: var(--accent-color);
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxxl);
+  text-align: center;
+  margin: 0;
+}
+
+h3{
+    font-family: var(--subtitle-font);
+    font-weight: 400;
+    font-size: var(--fs-l);
+    color: var(--main-white);
+    text-align: center;
+    margin: 0;
+    opacity: 54%;
+}
+
+.home_card{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 50px;
+}
+
+.home_card img{
+    max-height: 50vh;
+}
+
+@media screen and (width <= 425px){
+    
 }
