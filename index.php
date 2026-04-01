@@ -1,4 +1,4 @@
-<?php include './component/head.html' ?>
+<?php include './component/head.php' ?>
 <main>
   <?php
 

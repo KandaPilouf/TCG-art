@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TCG Art</title>
-    <link rel="stylesheet" href="./styles/css/main.css">
+    <?php include '/Applications/MAMP/htdocs/work/TCG-art/styles/stylesheet.php' ?>
   </head>
   <body>
     <header>
@@ -23,6 +22,7 @@
           <li><a href="index.php?categorie=home">Home</a></li>
           <li><a href="index.php?categorie=decks">Decks</a></li>
           <li><a href="index.php?categorie=profile">Profile</a></li>
+          <li><a href="index.php?categorie=catalogue">Catalogue</a></li>
           <li><a href="index.php?categorie=contact">Contact</a></li>
         </ul>
       </nav>
