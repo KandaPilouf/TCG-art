@@ -4,7 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php include './styles/stylesheet.php' ?>
+  <?php
+$css_dir = "./styles/css";
+?>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/common.css" ?>>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/typo.css" ?>>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/fonts.css" ?>>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/colors.css" ?>>
+<link rel="stylesheet" type="text/css" href=<?= "$css_dir/$page.css" ?>>
 </head>
 
 <body>
