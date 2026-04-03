@@ -45,6 +45,13 @@ header nav ul a {
   text-decoration: none;
   color: var(--main-white);
 }
+header nav ul a svg{
+  transition: all .2s ease-in-out;
+}
+header nav ul a svg:hover{
+  transform: scale(1.2);
+}
+
 
 #logo a svg {
   color: var(--main-white);

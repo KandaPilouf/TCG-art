@@ -27,6 +27,47 @@ h3{
     max-height: 50vh;
 }
 
+#home_searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#home_searchbar input{
+    padding: 0;
+    width: 70vw;
+    max-width: 500px;
+    background-color: transparent;
+    border: none;
+    align-self: auto;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+
+#home_searchbar input:focus{
+    outline : none;
+}
+
+#home_searchbar button{
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    justify-content: center;
+}
+
+#home_searchbar button svg{
+    height: auto;
+    padding: 5px 7px 0 0;
+}
+
+
+#wrapper{
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
 @media screen and (width <= 425px){
     
 }

@@ -8,6 +8,7 @@ if (isset($_GET['categorie'])) {
 }
 
 include './component/head.php';
+include './database/database.php';
 ?>
 <main>
   <?php
