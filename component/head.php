@@ -27,9 +27,7 @@
 
       <div class="navbar_right">
 
-        <div id="nav_cta">
-          <button>something</button>
-        </div>
+          <button class="nav_cta">build</button>
 
         <nav>
           <ul>

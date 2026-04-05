@@ -1,6 +1,6 @@
 :root{
-    --main-color: #1A1C2C;
+    --main-color: rgb(26, 28, 44);
     --secondary-color : #2C2F4A;
     --main-white: #F5F0E8;
-    --accent-color : #C9A84C;
+    --accent-color : rgb(201, 168, 76);
 }

@@ -2,7 +2,16 @@
     <h1>TCG ART</h1>
     <h3>collect your art</h3>
     <div class="home_card">
-        <img src="./assets/img/chocobo.png" alt="card image">
+
+        <?php
+        $sql = "SELECT card.img FROM card
+ORDER BY RAND();";
+        $stm = $pdo->query($sql);
+        $img = $stm->fetch();
+
+        echo '<img src=' . $img['img'] . '>';
+        ?>
+
     </div>
     <div id="home_searchbar">
         <input type="text" name="searchbar">
