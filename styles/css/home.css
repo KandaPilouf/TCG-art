@@ -1,3 +1,46 @@
-.home_card img {
-    max-width: 70vw;
+/* RESETS */
+
+h1,
+h2,
+h3,
+figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent-color);
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+}
+
+main {
+  background-color: var(--secondary-color);
+}
+
+html{
+    background-color: var(--secondary-color);
+}
+
+
+@media screen and (width<=425px) {
+  main {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  figure img{
+    max-width: 80vw;
+  }
+}
+
+@media screen and (width <= 768px) and (width >= 426px) {
+  footer {
+    display: none;
+  }
+  figure img{
+    max-width: 40vw;
+  }
 }
