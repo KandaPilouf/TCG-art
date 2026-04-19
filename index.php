@@ -1,4 +1,4 @@
-<?php 
+<?php
 $page = 'home';
 
 if (isset($_GET['categorie'])) {
@@ -10,11 +10,7 @@ if (isset($_GET['categorie'])) {
 include './component/head.php';
 include './database/database.php';
 ?>
-<main>
   <?php
-
-
   include $page . '.php';
   ?>
-</main>
 <?php include './component/foot.php' ?>

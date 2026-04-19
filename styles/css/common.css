@@ -47,7 +47,7 @@ header {
 }
 
 .nav_cta:hover {
-    cursor: pointer;
+  cursor: pointer;
   color: var(--accent-color);
   box-shadow: 0 5px 15px rgba(201, 168, 76, 0.7);
 }
@@ -58,7 +58,6 @@ header nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
   flex-flow: row;
   height: 100%;
   gap: 3rem;
@@ -68,11 +67,10 @@ header nav ul li a {
   color: var(--main-white);
 }
 
-  header nav ul li a svg:hover{
-    transform: scale(1.3);
-    transition: 0.1s;
-  }
-
+header nav ul li a svg:hover {
+  transform: scale(1.3);
+  transition: 0.1s;
+}
 
 /* NAV BAR FOR MOBILE AND TABLET*/
 
