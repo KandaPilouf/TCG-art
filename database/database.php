@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$db   = 'tgc_card_art';
-$user = 'tgc_card_art';
-$pass = 'L66utW0TjGYBB@1t';
+$db   = 'tcg_card_art';
+$user = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

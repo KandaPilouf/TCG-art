@@ -1,0 +1,26 @@
+# Documentation générée automatiquement par Cowork
+TCG-art-explication.md
+
+# Fichiers système macOS
+.DS_Store
+**/.DS_Store
+
+# Fichiers système Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs PHP / XAMPP
+*.log
+error_log
+
+# Fichiers d'environnement (à utiliser si tu déplaces tes credentials)
+.env
+.env.local
