@@ -2,7 +2,7 @@
     <h1>TCG ART</h1>
     <h3>collect your art</h3>
     <figure title="main home card">
-        <img src="./assets/img/chocobo.png" alt="card name">
+        <img src="./assets/img/chocobo.png" alt="card name" width="250px">
         <figcaption>Main home image</figcaption>
     </figure>
     <input type="text" name="searchbar">

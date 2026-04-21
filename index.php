@@ -12,8 +12,6 @@ include './database/database.php';
 ?>
 <main>
   <?php
-
-
   include $page . '.php';
   ?>
 </main>
