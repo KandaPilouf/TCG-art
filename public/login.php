@@ -5,15 +5,15 @@
 if (isset($_GET['error'])) {
 
     // Specific case: user is not allowed
-    if ($_GET['error'] === 'notallowed') {
+    if ($_GET['error'] === '1') {
 
         // Display a custom message for this case
-        echo '<p>ahahahaa you didnt say magic word.</p>';
+        echo '<p>wrong pass.</p>';
 
-    } else {
+    } else if ($_GET['error'] === '2'){
 
         // Fallback message for any other error value
-        echo '<p>Failed. Retry.</p>';
+        echo '<p>Email does not exist.</p>';
     }
 }
 ?>
