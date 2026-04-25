@@ -25,7 +25,7 @@ $css_dir = "./styles/css";
     </div>
 
     <div id="nav_cta">
-      <button>something</button>
+      <a href="index.php?categorie=login">Login</a>
     </div>
 
     <nav>
