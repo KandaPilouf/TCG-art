@@ -1,17 +1,10 @@
 <?php
 
-// Check if an 'error' parameter exists in the URL (?error=...)
 if (isset($_GET['error'])) {
 
-    // Specific case: user is not allowed
     if ($_GET['error'] === '1') {
-
-        // Display a custom message for this case
         echo '<p>wrong pass.</p>';
-
     } else if ($_GET['error'] === '2'){
-
-        // Fallback message for any other error value
         echo '<p>Email does not exist.</p>';
     }
 }
