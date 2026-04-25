@@ -15,5 +15,5 @@ if ($user !== false && password_verify($_POST['password'], $db_password) && empt
 
     header('Location: ../index.php?categorie=home');
 } else {
-    header('Location: index.php/?categorie=login,error=1');
+    header('Location: ../index.php?categorie=login&error=1');
 }
