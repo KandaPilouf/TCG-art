@@ -1,4 +1,3 @@
-
 <?php
 
 // Check if an 'error' parameter exists in the URL (?error=...)
