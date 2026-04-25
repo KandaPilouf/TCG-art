@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_POST['logout'])) {
+  session_destroy();
+  header('Location: index.php?categorie=home');
+  exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -5,13 +15,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <?php
-$css_dir = "./styles/css";
-?>
-<link rel="stylesheet" type="text/css" href=<?= "$css_dir/common.css" ?>>
-<link rel="stylesheet" type="text/css" href=<?= "$css_dir/typo.css" ?>>
-<link rel="stylesheet" type="text/css" href=<?= "$css_dir/fonts.css" ?>>
-<link rel="stylesheet" type="text/css" href=<?= "$css_dir/colors.css" ?>>
-<link rel="stylesheet" type="text/css" href=<?= "$css_dir/$page.css" ?>>
+  $css_dir = "./styles/css";
+  ?>
+  <link rel="stylesheet" type="text/css" href=<?= "$css_dir/common.css" ?>>
+  <link rel="stylesheet" type="text/css" href=<?= "$css_dir/typo.css" ?>>
+  <link rel="stylesheet" type="text/css" href=<?= "$css_dir/fonts.css" ?>>
+  <link rel="stylesheet" type="text/css" href=<?= "$css_dir/colors.css" ?>>
+  <link rel="stylesheet" type="text/css" href=<?= "$css_dir/$page.css" ?>>
 </head>
 
 <body>
@@ -24,10 +34,17 @@ $css_dir = "./styles/css";
       </a>
     </div>
 
-    <div id="nav_cta">
-      <a href="index.php?categorie=login">Login</a>
-    </div>
-
+    <?php
+    if (isset($_SESSION['is_connected'])) {
+      echo "<form action='index.php?categorie=home' method='post'>
+              <input type='submit' name='logout' value='logout'>
+            </form>";
+    } else {
+      echo "<div id='nav_cta'>
+              <a href='index.php?categorie=login'>Login</a>
+            </div>";
+    }
+    ?>
     <nav>
       <ul>
         <li><a href="index.php?categorie=home"><svg width="27" height="30" viewBox="0 0 27 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
