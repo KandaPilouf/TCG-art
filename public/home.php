@@ -3,7 +3,7 @@
     <h3>collect your art</h3>
     <?php
         if (isset($_SESSION['is_connected'])) {
-            echo "<h4> Hello " . $_SESSION['is_connected'] . "</h4>";
+            echo "<h4> Hello " . $_SESSION['name'] . "</h4>";
         }
     ?>
     <figure title="main home card">
