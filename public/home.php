@@ -8,7 +8,7 @@
     ?>
     <figure title="main home card">
         <img src="./assets/img/chocobo.png" alt="card name" width="250px">
-        <figcaption>Main home image</figcaption>
+        <figcaption>main card</figcaption>
     </figure>
     <input type="text" name="searchbar">
     <button>
