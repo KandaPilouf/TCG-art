@@ -1,19 +1,19 @@
 <?php
-require 'router.php';
 
-/* get page with href when icons are clicked */
- if (isset($_GET['categorie'])) {
-   $page = $_GET['categorie'];
- } elseif (isset($_GET['item'])) {
-   $page = $_GET['item'];
- }
+require 'core/http.php';
+require 'core/router.php';
+require 'core/html.php';
 
-require './component/head.php';
-require './database/database.php';
-?>
-<main>
-  <?php
-  require './public/' . $page . '.php';
-  ?>
-</main>
-<?php require './component/foot.php' ?>
+$base = __DIR__.'/app';
+
+$segments = http_in($_SERVER['REQUEST_URI']);
+$route = route($segments);
+
+$main = run($route, $base);
+$body = render('app/views/_layout.php', ['page_content' => $main]);
+
+http_out(200, $body);
+
+// var_dump($segments);
+// var_dump($route);
+// var_dump($body);
