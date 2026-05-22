@@ -1,7 +1,7 @@
 <?php
 
 function home_index(){
-    return '';
+    return 'elo';
 }
 
 ?>

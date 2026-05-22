@@ -11,7 +11,6 @@ $route = route($segments);
 
 $main = run($route, $base);
 $body = render('app/views/_layout.php', ['page_content' => $main]);
-
 http_out(200, $body);
 
 // var_dump($segments);
