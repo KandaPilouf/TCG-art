@@ -65,7 +65,7 @@ if (isset($_POST['logout'])) {
               <input type='submit' name='logout' value='logout'>
             </form>";
       } else {
-        echo "<form action='index.php?categorie=login' method=''>
+        echo "<form action='/login/index' method=''>
               <input type='submit' name='categorie' value='login'>
             </form>";
       }
