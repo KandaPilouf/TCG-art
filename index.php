@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'core/http.php';
 require 'core/router.php';
 require 'core/html.php';

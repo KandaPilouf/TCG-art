@@ -44,6 +44,30 @@ function route(array $http_segments): array
         }
     }
 
+    if (isset($http_segments[0]) && $http_segments[0] == "admin") {
+
+        if (empty($_SESSION['is_connected'])) {
+            redirect("/login");
+        }
+
+        $route = [];
+
+        // Premier segment : l'entité à manipuler.
+        // Exemple : /item/show/3 → item
+        $route['entity'] = $http_segments[0] ?? 'admin';
+
+        // Deuxième segment : l'action à exécuter.
+        // Exemple : /item/show/3 → show
+        $route['action'] = $http_segments[1] ?? 'index';
+
+        // Troisième segment : l'identifiant éventuel.
+        // Exemple : /item/show/3 → 3
+        $route['id']     = $http_segments[2] ?? null;
+
+        return $route;
+    }
+
+
     // La route est une version nommée des segments HTTP.
     $route = [];
 

@@ -56,6 +56,15 @@
                 </ul>
             </nav>
 
+            <?php if (!empty($_SESSION['is_connected'])){ ?>
+                <form action="/login/logout" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            <?php } else { ?>
+                <a href="/login">Login</a>
+            <?php } ?>
+
+
         </div>
     </header>
 
