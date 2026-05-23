@@ -61,7 +61,7 @@ function route(array $http_segments): array
 
     return $route;
 }
-function run(array $route, string $base_path): string
+function run(array $route, string $base_path, $pdo): string
 {
     // Le front controller connaît la racine du projet.
     $base_path = rtrim($base_path, '/');
@@ -88,12 +88,12 @@ function run(array $route, string $base_path): string
 
     // Si un identifiant existe dans la route, il est transmis au controller.
     if ($route['id'] !== null) {
-        return $function_name($route['id']);
+        return $function_name($pdo, $route['id']);
     }
 
 
     // Sinon, le controller est appelé sans argument.
-    return $function_name();
+    return $function_name($pdo);
 }
 
 
