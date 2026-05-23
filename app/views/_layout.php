@@ -17,10 +17,6 @@ if (isset($_POST['logout'])) {
     <?php
     $css_dir = "./styles/css";
     ?>
-    <link rel="stylesheet" type="text/css" href=<?= "$css_dir/common.css" ?>>
-    <link rel="stylesheet" type="text/css" href=<?= "$css_dir/typo.css" ?>>
-    <link rel="stylesheet" type="text/css" href=<?= "$css_dir/fonts.css" ?>>
-    <link rel="stylesheet" type="text/css" href=<?= "$css_dir/colors.css" ?>>
 </head>
 
 <body>
