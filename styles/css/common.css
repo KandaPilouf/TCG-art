@@ -1,20 +1,89 @@
-body>header{
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row;
-    max-width: 1920px;
-    margin: 0 auto;
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-body>header>.header_right{
-    display: flex;
-    flex-flow: row;
-    gap: 2rem;
+body {
+  margin: 0;
+  background-color: var(--main-white);
+  display: grid;
+  grid-template-columns: 12;
 }
 
-body>header>.header_right>nav>ul{
-    display: flex;
-    flex-flow: row;
-    gap: 2rem;
-    list-style: none;
+h1{
+    margin: 0;
+    padding: 0;
 }
+
+main{
+    flex: 1 1 auto;
+    padding: 56px 40px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    row-gap: 32px;
+    align-content: start;
+    overflow: hidden;
+}
+/* NAVBAR STYLING */
+
+body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 35px;
+  background: var(--main-color);
+  color: var(--main-white);
+  border-bottom: 2px solid var(--accent-color);
+  flex-flow: row;
+}
+
+#logo {
+  width: 64px;
+  height: 64px;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo > a > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: var(--accent-color);
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  gap: 24px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+ul > li > a > svg {
+  width: 48px;
+  height: 48px;
+  color: var(--accent-color);
+}
+
+/* FOOTER STYLING */
+
+footer{
+    width: 100%;
+    padding: 20px 56px;
+    border: solid 1px var(--main-color);
+}
+
+
+
