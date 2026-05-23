@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/css/common.css">
     <link rel="stylesheet" href="/styles/css/colors.css">
+    <link rel="stylesheet" href="/styles/css/fonts.css">
     <link rel="stylesheet" href="/styles/css/typo.css">
+    <link rel="stylesheet" href="/styles/css/common.css">
 
     <?php
     $page_css = __DIR__ . '/../../styles/css/' . $entity . '.css';
