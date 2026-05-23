@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="/styles/css/common.css">
     <link rel="stylesheet" href="/styles/css/colors.css">
     <link rel="stylesheet" href="/styles/css/typo.css">
+
+    <?php
+    $page_css = __DIR__ . '/../../styles/css/' . $entity . '.css';
+
+    if (is_file($page_css)) {
+    ?>
+        <link rel="stylesheet" href="/styles/css/<?php echo $entity ?>.css">
+    <?php
+    }
+    ?>
 </head>
 
 <body>
@@ -44,7 +54,7 @@
                         </a></li>
                 </ul>
             </nav>
-            
+
         </div>
     </header>
 
