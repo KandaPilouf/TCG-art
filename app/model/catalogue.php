@@ -1,26 +1,31 @@
 <?php
 
-function get_all_items($pdo){
+function get_all_items($pdo)
+{
     $sql = "SELECT * FROM card";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
 }
 
-function get_one_items($pdo, $slug){
+function get_one_items($pdo, $slug)
+{
     $sql = "SELECT card.*,
        style.style,
        universe.universe,
        variant.variant,
-       color.color
+       color.color,
+       GROUP_CONCAT(tag.tag SEPARATOR ', ') AS tags
 FROM card
 JOIN style    ON style.id    = card.style_id
 JOIN universe ON universe.id = card.universe_id
 JOIN variant  ON variant.id  = card.variant_id
 JOIN color    ON color.id    = card.primary_color_id
+LEFT JOIN card_tag ON card_tag.id_card = card.id
+LEFT JOIN tag      ON tag.id = card_tag.id_tag
 WHERE card.slug = ?
+GROUP BY card.id
 ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$slug]);
     return $stmt->fetch();
 }
-?>
