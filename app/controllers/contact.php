@@ -1,5 +1,5 @@
 <?php
 function contact_index(){
-    return '';
+    return render("app/views/contact.php");
 }
 ?>
