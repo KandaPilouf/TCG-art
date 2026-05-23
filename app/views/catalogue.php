@@ -8,7 +8,7 @@
     ?>
         <figure>
             <h1><?php echo $card['name']; ?></h1>
-            <img src="./assets/img/chocobo.png" alt="card image">
+            <img src=<?php echo $card['img']; ?> alt="card image">
             <figcaption>
                 card data/tags/style/etc
             </figcaption>
