@@ -8,6 +8,18 @@ require './database/database.php';
 $base = __DIR__ . '/app';
 
 $segments = http_in($_SERVER['REQUEST_URI']);
+
+if (isset($segments[0]) && $segments[0] === 'admin') {
+
+    if (empty($_SESSION['is_connected'])) {
+        redirect('/login');
+    }
+
+    $base = __DIR__ . '/app';
+
+    array_shift($segments);
+}
+
 $route = route($segments);
 
 $main = run($route, $base, $pdo);
