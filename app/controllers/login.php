@@ -15,7 +15,7 @@ function login_index($pdo){
             $_SESSION['is_connected'] = 1;
             $_SESSION['is_admin']     = (int) $user['is_admin'];
 
-            redirect($_SESSION['is_admin'] == 1 ? '/admin' : '/home');
+            redirect($_SESSION['is_admin'] == 1 ? '/profile' : '/home');
         }
         $error = 'Email ou mot de passe invalide';
     }
