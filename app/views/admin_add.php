@@ -1,4 +1,4 @@
-<form method="POST" action="/admin/add">
+<form method="POST" action="/profile/add">
     <label for="name">Card name</label>
     <input id="name" name="name" value="" required>
 
