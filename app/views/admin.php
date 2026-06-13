@@ -1,1 +1,0 @@
-<a href="/admin/add">add a card</a>
