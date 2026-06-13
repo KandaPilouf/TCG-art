@@ -1,16 +1,18 @@
 <div>
-    <h1>USERNAME</h1>
-    <p>memeber since (date)</p>
-    <button>add card</button>
-    <button>delete card</button>
+    <h1><?php echo $user['name'] ?></h1>
+    <p>member since <?= $user['date'] ?></p>
+    <a href="/admin/">Admin page</a>
 </div>
 
 <div>
-    <h2>stats</h2>
+    <p>cards owned</p>
+    <p>collections</p>
 </div>
 
 <div>
     <figure>
+        <h3>Collections</h3>
+        <button>New collection</button>
         <img src="#" alt="collection image">
     </figure>
 </div>
