@@ -12,7 +12,7 @@
             <figcaption>
                 <span> Artist: <?php echo $card['artist'];?></span>
             </figcaption>
-            <button><a href="catalogue/show/<?php echo $card['slug'] ?>">show item</a></button>
+            <button><a href="/catalogue/show/<?php echo $card['slug'] ?>">show item</a></button>
         </figure>
 
     <?php

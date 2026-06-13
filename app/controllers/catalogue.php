@@ -1,15 +1,24 @@
 <?php
 require './app/model/catalogue.php';
 
-function catalogue_index($pdo){
+function catalogue_index($pdo)
+{
+
+    $q = $_GET['q'] ?? '';
     $data = [];
-    $data ['cards'] = get_all_items($pdo);
+
+    if (!empty($q)) {
+        $data['cards'] = search_cards($pdo, $q);
+    } else {
+        $data['cards'] = get_all_items($pdo);
+    }
+
     return render("app/views/catalogue.php", $data);
 }
 
-function catalogue_show($pdo, $slug){
+function catalogue_show($pdo, $slug)
+{
     $data = [];
-    $data ['card'] = get_one_items($pdo, $slug);
+    $data['card'] = get_one_items($pdo, $slug);
     return render("app/views/item.php", $data);
 }
-?>

@@ -29,3 +29,10 @@ GROUP BY card.id
     $stmt->execute([$slug]);
     return $stmt->fetch();
 }
+
+function search_cards($pdo, $q){
+    $sql = "SELECT name, artist, img, slug FROM card WHERE name LIKE ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['%' . $q . '%']);
+    return $stmt->fetchAll();
+}
