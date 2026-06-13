@@ -13,9 +13,11 @@ if (isset($segments[0]) && $segments[0] === 'admin') {
 
     if (empty($_SESSION['is_connected'])) {
         redirect('/login');
+    } else if($_SESSION['is_admin'] != 1){
+        redirect('/home');
     }
 
-    $base = __DIR__ . '/app';
+    $base = __DIR__ . '/app/admin';
 
     array_shift($segments);
 }
