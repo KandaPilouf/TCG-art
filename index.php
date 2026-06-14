@@ -3,6 +3,8 @@ session_start();
 require 'core/http.php';
 require 'core/router.php';
 require 'core/html.php';
+require 'core/env.php';
+load_env(__DIR__ . '/.env');
 require './database/database.php';
 
 $base = __DIR__ . '/app';
