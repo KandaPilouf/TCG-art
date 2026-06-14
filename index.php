@@ -36,6 +36,3 @@ $body = render(
 );
 http_out(200, $body);
 
-// var_dump($segments);
-// var_dump($route);
-// var_dump($body);
