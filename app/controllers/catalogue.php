@@ -19,6 +19,6 @@ function catalogue_index($pdo)
 function catalogue_show($pdo, $slug)
 {
     $data = [];
-    $data['card'] = get_one_items($pdo, $slug);
+    $data['card'] = get_one_item($pdo, $slug);
     return render("app/views/item.php", $data);
 }

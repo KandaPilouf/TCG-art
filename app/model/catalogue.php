@@ -7,7 +7,7 @@ function get_all_items($pdo)
     return $stmt->fetchAll();
 }
 
-function get_one_items($pdo, $slug)
+function get_one_item($pdo, $slug)
 {
     $sql = "SELECT card.*,
        style.style,
