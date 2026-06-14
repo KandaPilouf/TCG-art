@@ -2,7 +2,7 @@
 
 function get_all_items($pdo)
 {
-    $sql = "SELECT name, artist, img, slug FROM card";
+    $sql = "SELECT name, artist, img, slug FROM card WHERE is_deleted = 0";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
 }
@@ -22,7 +22,8 @@ JOIN variant  ON variant.id  = card.variant_id
 JOIN color    ON color.id    = card.primary_color_id
 LEFT JOIN card_tag ON card_tag.id_card = card.id
 LEFT JOIN tag      ON tag.id = card_tag.id_tag
-WHERE card.slug = ?
+WHERE card.slug = ? 
+AND is_deleted = 0
 GROUP BY card.id
 ";
     $stmt = $pdo->prepare($sql);

@@ -29,6 +29,13 @@ function card_add($pdo)
 
 function card_delete($pdo)
 {
+
+    if(is_post()){
+        $id = $_POST['id'];
+        delete_card($pdo, $id);
+    }
+
     $data = [];
-    return render("app/admin/views/card_delete.php");
+    $data ['cards'] = get_all_cards($pdo);
+    return render("app/admin/views/card_delete.php", $data);
 }

@@ -1,7 +1,7 @@
 <?php
 function get_random_card($pdo)
 {
-    $sql = "SELECT * FROM card
+    $sql = "SELECT * FROM card WHERE is_deleted = 0
     ORDER BY RAND()
     LIMIT 1";
     $stmt = $pdo->query($sql);
@@ -9,7 +9,7 @@ function get_random_card($pdo)
 }
 
 function get_all_cards($pdo){
-    $sql = "SELECT name FROM card";
+    $sql = "SELECT name FROM card WHERE is_deleted = 0";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
 }
