@@ -37,15 +37,15 @@
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 
-  mask-image: linear-gradient(to top, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to top, black 30%, transparent);
+  mask-image: linear-gradient(to top, black 40%, transparent);
+  -webkit-mask-image: linear-gradient(to top, black 40%, transparent);
 
 }
 
 
 #home_right > figure > figcaption > span{
     font-family: var(--subtitle-font);
-    font-size: var(--fs-base);
+    font-size: var(--fs-md);
     color: var(--main-white);
 }
 main {
