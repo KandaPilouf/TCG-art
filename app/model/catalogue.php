@@ -35,6 +35,8 @@ function search_cards($pdo, $q)
             JOIN universe ON universe.id = card.universe_id
             JOIN color    ON color.id    = card.primary_color_id
             JOIN style    ON style.id    = card.style_id
+            LEFT JOIN card_tag ON card_tag.id_card = card.id
+            LEFT JOIN tag      ON tag.id = card_tag.id_tag
             WHERE card.is_deleted = 0
             AND (
                 card.name      LIKE ?
@@ -42,9 +44,12 @@ function search_cards($pdo, $q)
                 OR universe.universe LIKE ?
                 OR color.color       LIKE ?
                 OR style.style       LIKE ?
-            )";
+                OR tag.tag           LIKE ?
+            )
+            GROUP BY card.id";
+            
     $stmt = $pdo->prepare($sql);
     $like = '%' . $q . '%';
-    $stmt->execute([$like, $like, $like, $like, $like]);
+    $stmt->execute([$like, $like, $like, $like, $like, $like]);
     return $stmt->fetchAll();
 }
