@@ -15,8 +15,9 @@ function card_add($pdo)
         $color = $_POST['color'];
         $universe = $_POST['universe'];
         $date = $_POST['date'];
+        $tags = $_POST['tag'] ?? [];
 
-        add_card($pdo, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date);
+        add_card($pdo, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date, $tags);
     }
 
     $data = [];
@@ -24,6 +25,7 @@ function card_add($pdo)
     $data['universes'] = get_universe($pdo);
     $data['colors'] = get_color($pdo);
     $data['variants'] = get_variant($pdo);
+    $data['tags'] = get_tag($pdo);
     return render("app/admin/views/card_add.php", $data);
 }
 

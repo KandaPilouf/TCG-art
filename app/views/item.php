@@ -12,7 +12,7 @@
             <li>Universe: <?php echo $card['universe'] ?></li>
         </ul>
         <ul>
-            <li>Tag: <?php echo $card['tags'];?></li>
+            <li>Tags: <?php echo $card['tags'];?></li>
         </ul>
     </figcaption>
 </figure>

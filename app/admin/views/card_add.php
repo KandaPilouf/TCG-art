@@ -59,5 +59,15 @@
         }
         ?>
     </select>
+
+    <label for="tag">Card tags</label>
+    <select name="tag[]" id="tag" multiple>
+        <?php 
+        foreach($tags as $tag){?>
+            <option value="<?= $tag['id'] ?>"><?= escape($tag['tag']) ?></option>
+        <?php
+        }
+        ?>
+    </select>
     <button type="submit">save</button>
 </form>

@@ -28,11 +28,23 @@ function get_color($pdo)
     return $stmt->fetchAll();
 }
 
-function add_card($pdo, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date)
+function get_tag($pdo){
+    $sql = "SELECT id, tag FROM tag";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+function add_card($pdo, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date, $tags)
 {
     $stmt = $pdo->prepare("INSERT INTO `card` (`id`, `name`, `slug`, `artist`, `img`, `style_id`, `universe_id`, `creation_date`, `variant_id`, `primary_color_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-
     $stmt->execute([$name, $slug, $artist, $img, $style, $universe, $date, $variant, $color]);
+
+    $card_id = $pdo->lastInsertId();
+    $tagStmt = $pdo->prepare("INSERT INTO card_tag (id_card, id_tag) VALUES (?,?)");
+
+    foreach($tags as $tag_id){
+        $tagStmt->execute([$card_id, $tag_id]);
+    }
 }
 
 function delete_card($pdo, $id){
