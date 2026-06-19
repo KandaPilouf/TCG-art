@@ -56,12 +56,15 @@
                 </ul>
             </nav>
 
-            <?php if (!empty($_SESSION['is_connected'])){ ?>
+            <?php if (!empty($_SESSION['is_connected'])) { ?>
                 <form action="/login/logout" method="POST">
                     <button type="submit">Logout</button>
                 </form>
             <?php } else { ?>
-                <a href="/login">Login</a>
+                <div id="connection">
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                </div>
             <?php } ?>
 
 
