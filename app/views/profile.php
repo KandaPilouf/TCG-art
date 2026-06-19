@@ -1,7 +1,13 @@
 <div>
     <h1><?php echo $user['name'] ?></h1>
     <p>member since <?= $user['date'] ?></p>
-    <a href="/admin/">Admin page</a>
+
+    <?php
+    if ($_SESSION['is_admin'] === 1) { ?>
+        <a href="/admin/">Admin page</a>
+    <?php
+    }
+    ?>
 </div>
 
 <div>

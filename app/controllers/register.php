@@ -7,11 +7,13 @@ function register_index($pdo)
 
     if (is_post()) {
         $name = $_POST['name'];
-        $email= $_POST['email'];
-        $password= $_POST['password'];
-        $confirm= $_POST['password_confirm'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirm = $_POST['password_confirm'];
 
-        if($password !== $confirm){
+        if (!empty(find_user_by_email($pdo, $email))) {
+            $error = "Email already used";
+        } else if ($password !== $confirm) {
             $error = 'Password dont match!';
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);

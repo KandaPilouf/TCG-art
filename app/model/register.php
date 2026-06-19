@@ -8,3 +8,9 @@ function create_user($pdo, $name, $email, $hash){
     $stmt->execute([$name,$email,$hash]);
 
 }
+
+function find_user_by_email($pdo, $email) {
+    $stmt = $pdo->prepare('SELECT email FROM user WHERE email = ?');
+    $stmt->execute([$email]);
+    return $stmt->fetch();
+}
