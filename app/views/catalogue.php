@@ -1,10 +1,11 @@
 <div id="filters">
-    <input type="text" name="searchbar">
+    <form action="/catalogue" method="GET">
+        <input list="card_name" type="text" name="q" placeholder="Search cards" value="<?= isset($_GET['q']) ? escape($_GET['q']) : '' ?>">
+        <button type="submit">Search</button>
+    </form>
     <select name="tags"></select>
     <select name="style"></select>
     <select name="universe"></select>
-
-    
 </div>
 
 <div id="cards">
