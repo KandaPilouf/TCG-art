@@ -25,7 +25,7 @@ function card_add($pdo)
     $data['universes'] = get_universe($pdo);
     $data['colors'] = get_color($pdo);
     $data['variants'] = get_variant($pdo);
-    $data['tags'] = get_tag($pdo);
+    $data['tags'] = get_tags($pdo);
     return render("app/admin/views/card_add.php", $data);
 }
 

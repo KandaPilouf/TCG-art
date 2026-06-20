@@ -28,6 +28,27 @@ function get_one_item($pdo, $slug)
     return $stmt->fetch();
 }
 
+function get_tags($pdo)
+{
+    $sql = "SELECT id, tag FROM tag";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+function get_styles($pdo)
+{
+    $sql = "SELECT id, style FROM style";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+function get_universes($pdo)
+{
+    $sql = "SELECT id, universe FROM universe";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
 function search_cards($pdo, $q)
 {
     $sql = "SELECT card.name, card.artist, card.img, card.slug
@@ -47,7 +68,7 @@ function search_cards($pdo, $q)
                 OR tag.tag           LIKE ?
             )
             GROUP BY card.id";
-            
+
     $stmt = $pdo->prepare($sql);
     $like = '%' . $q . '%';
     $stmt->execute([$like, $like, $like, $like, $like, $like]);

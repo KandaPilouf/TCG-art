@@ -1,11 +1,39 @@
 <div id="filters">
     <form action="/catalogue" method="GET">
         <input list="card_name" type="text" name="q" placeholder="Search cards" value="<?= isset($_GET['q']) ? escape($_GET['q']) : '' ?>">
+
+        <label for="tags">Tags</label>
+        <select name="tags">
+            <option value="">All tags</option>
+            <?php foreach ($tags as $tag) { ?>
+                <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+            <?php } ?>
+        </select>
+
+        <label for="styles">Styles</label>
+        <select name="style">
+            <option value="">All styles</option>
+            <?php
+            foreach ($styles as $style) { ?>
+                <option value="<?= $style['id'] ?>"><?= $style['style'] ?></option>
+            <?php
+            }
+            ?>
+        </select>
+
+        <label for="universe">Universe</label>
+        <select name="universe">
+            <option value="">All universe</option>
+            <?php
+            foreach ($universes as $universe) { ?>
+                <option value="<?= $universe['id'] ?>"><?= $universe['universe'] ?></option>
+            <?php
+            }
+            ?>
+        </select>
+
         <button type="submit">Search</button>
     </form>
-    <select name="tags"></select>
-    <select name="style"></select>
-    <select name="universe"></select>
 </div>
 
 <div id="cards">

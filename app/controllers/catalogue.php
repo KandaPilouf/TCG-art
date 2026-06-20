@@ -6,6 +6,9 @@ function catalogue_index($pdo)
 
     $q = $_GET['q'] ?? '';
     $data = [];
+    $data['tags'] = get_tags($pdo);
+    $data['styles'] = get_styles($pdo);
+    $data['universes'] = get_universes($pdo);
 
     if (!empty($q)) {
         $data['cards'] = search_cards($pdo, $q);

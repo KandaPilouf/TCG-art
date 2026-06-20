@@ -28,7 +28,7 @@ function get_color($pdo)
     return $stmt->fetchAll();
 }
 
-function get_tag($pdo){
+function get_tags($pdo){
     $sql = "SELECT id, tag FROM tag";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
