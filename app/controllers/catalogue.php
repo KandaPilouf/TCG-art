@@ -3,18 +3,19 @@ require './app/model/catalogue.php';
 
 function catalogue_index($pdo)
 {
-
     $q = $_GET['q'] ?? '';
+    $tags = $_GET['tags'] ?? '';
+    $style = $_GET['style'] ?? '';
+    $universe = $_GET['universe'] ?? '';
+    $color = $_GET['color'] ?? '';
+
     $data = [];
     $data['tags'] = get_tags($pdo);
     $data['styles'] = get_styles($pdo);
     $data['universes'] = get_universes($pdo);
+    $data['colors'] = get_colors($pdo);
 
-    if (!empty($q)) {
-        $data['cards'] = search_cards($pdo, $q);
-    } else {
-        $data['cards'] = get_all_items($pdo);
-    }
+    $data['cards'] = filter_cards($pdo, $q, $tags, $style, $universe, $color);
 
     return render("app/views/catalogue.php", $data);
 }

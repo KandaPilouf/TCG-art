@@ -7,6 +7,46 @@ function get_all_items($pdo)
     return $stmt->fetchAll();
 }
 
+function filter_cards($pdo, $q, $tag, $style, $universe, $color)
+{
+    $sql = "SELECT card.name, card.artist, card.img, card.slug
+            FROM card
+            LEFT JOIN card_tag ON card_tag.id_card = card.id
+            LEFT JOIN style    ON style.id    = card.style_id
+            LEFT JOIN universe ON universe.id = card.universe_id
+            LEFT JOIN color ON color.id = card.primary_color_id
+            WHERE card.is_deleted = 0";
+
+    $params = [];
+
+    if ($q !== '') {
+        $sql .= " AND card.name LIKE ?";
+        $params[] = '%' . $q . '%';
+    }
+    if ($tag !== '') {
+        $sql .= " AND card_tag.id_tag = ?";
+        $params[] = $tag;
+    }
+    if ($style !== '') {
+        $sql .= " AND card.style_id = ?";
+        $params[] = $style;
+    }
+    if ($universe !== '') {
+        $sql .= " AND card.universe_id = ?";
+        $params[] = $universe;
+    }
+    if ($color !== '') {
+        $sql .= " AND card.primary_color_id = ?";
+        $params[] = $color;
+    }
+
+    $sql .= " GROUP BY card.id";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    return $stmt->fetchAll();
+}
+
 function get_one_item($pdo, $slug)
 {
     $sql = "SELECT card.*,
@@ -45,6 +85,13 @@ function get_styles($pdo)
 function get_universes($pdo)
 {
     $sql = "SELECT id, universe FROM universe";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+function get_colors($pdo)
+{
+    $sql = "SELECT id, color FROM color";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
 }

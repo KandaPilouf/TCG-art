@@ -6,7 +6,9 @@
         <select name="tags">
             <option value="">All tags</option>
             <?php foreach ($tags as $tag) { ?>
-                <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+                <option value="<?= $tag['id'] ?>" <?= (isset($_GET['tags']) && $_GET['tags'] == $tag['id']) ? 'selected' : '' ?>>
+                    <?= escape($tag['tag']) ?>
+                </option>
             <?php } ?>
         </select>
 
@@ -15,10 +17,10 @@
             <option value="">All styles</option>
             <?php
             foreach ($styles as $style) { ?>
-                <option value="<?= $style['id'] ?>"><?= $style['style'] ?></option>
-            <?php
-            }
-            ?>
+                <option value="<?= $style['id'] ?>" <?= (isset($_GET['style']) && $_GET['style'] == $style['id']) ? 'selected' : '' ?>>
+                    <?= escape($style['style']) ?>
+                </option>
+            <?php } ?>
         </select>
 
         <label for="universe">Universe</label>
@@ -26,7 +28,20 @@
             <option value="">All universe</option>
             <?php
             foreach ($universes as $universe) { ?>
-                <option value="<?= $universe['id'] ?>"><?= $universe['universe'] ?></option>
+                <option value="<?= $universe['id'] ?>" <?= (isset($_GET['universe']) && $_GET['universe'] == $universe['id']) ? 'selected' : '' ?>>
+                    <?= escape($universe['universe']) ?>
+                </option>
+            <?php } ?>
+        </select>
+
+        <label for="color">Color</label>
+        <select name="color">
+            <option value="">All colors</option>
+            <?php
+            foreach ($colors as $color) { ?>
+                <option value="<?= $color['id'] ?>" <?= (isset($_GET['color']) && $_GET['color'] == $color['id']) ? 'selected' : '' ?>>
+                    <?= escape($color['color']) ?>
+                </option>
             <?php
             }
             ?>
