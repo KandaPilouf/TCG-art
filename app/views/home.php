@@ -12,7 +12,7 @@
     <form method="GET" action="/catalogue">
         <input list="card_name" type="text" name="q" placeholder="search cards">
         <datalist id="card_name">
-            <?php foreach($cards as $list_card){?>
+            <?php foreach ($cards as $list_card) { ?>
                 <option value="<?= $list_card['name'] ?>"></option>
             <?php } ?>
         </datalist>
