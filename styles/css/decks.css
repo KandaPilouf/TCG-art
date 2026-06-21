@@ -1,3 +1,73 @@
-h1{
-    color: orange;
+main {
+  grid-template-rows: auto auto;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 24px;
+  row-gap: 32px;
+  grid-row: 2/3;
+  grid-column: span 10/12;
+}
+
+#cards figure {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+
+#cards figure:hover {
+  transform: scale(1.08);
+}
+
+#cards figure div > img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  display: block;
+}
+
+#cards figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  padding: 12px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-mask-image: linear-gradient(to top, black 70%, transparent);
+  mask-image: linear-gradient(to top, black 70%, transparent);
+}
+
+#cards figcaption > h2 {
+  font-family: var(--h1-font);
+  font-weight: 400;
+  margin: 0;
+}
+
+#cards figcaption > span {
+  font-family: var(--subtitle-font);
+  font-weight: 400;
+}
+
+#card_caption {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+#cards #card_caption:hover figcaption {
+  opacity: 1;
+}
+
+#cards #card_caption:hover img {
+  transform: scale(1.03);
 }

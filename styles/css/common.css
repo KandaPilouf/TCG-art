@@ -95,9 +95,15 @@ footer {
 
 .btn-pos{
   padding-top: 10px;
+  display: grid;
+  grid-template-rows: auto, auto;
+  gap: 5px ;
+}
+
+.btn-pos form{
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .btn-card{
@@ -111,4 +117,21 @@ footer {
   color: var(--main-white);
   font-size: var(--fs-base);
   font-family: var(--subtitle-font);
+}
+
+.btn-add-deck{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 2rem;
+  background-color: var(--main-color);
+  color: var(--main-white);
+  font-size: var(--fs-base);
+  font-family: var(--subtitle-font);
+}
+
+.btn-add-deck:hover{
+  cursor: pointer;
 }
