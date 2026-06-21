@@ -21,3 +21,18 @@ function decks_add($pdo){
     }
     redirect('/decks');
 }
+
+function decks_show($pdo, $deck_id){
+    require_connected();
+
+    $deck = get_user_deck($pdo, $deck_id);
+    $data = [];
+
+    if(!$deck || $deck['id_user'] !== $_SESSION['user_id']){
+        redirect('/decks');
+    }
+
+    $data['deck'] = $deck;
+
+    return render('app/views/deck_show.php', $data);
+}
