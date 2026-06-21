@@ -45,7 +45,7 @@ main {
   font-family: var(--subtitle-font);
   font-size: var(--fs-base);
   border: none;
-  color: white;
+  color: var(--main-white);
   background-color: var(--main-color);
 }
 

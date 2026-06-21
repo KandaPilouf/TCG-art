@@ -2,6 +2,19 @@ main {
   grid-template-rows: auto auto;
 }
 
+#title{
+  grid-column: 2/12;
+  display: flex;
+  justify-content: start;
+  border-bottom: 5px solid black;
+}
+
+#title h1{
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+}
+
 #cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
