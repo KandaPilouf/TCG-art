@@ -14,8 +14,11 @@ function catalogue_index($pdo)
     $data['styles'] = get_styles($pdo);
     $data['universes'] = get_universes($pdo);
     $data['colors'] = get_colors($pdo);
-
     $data['cards'] = filter_cards($pdo, $q, $tags, $style, $universe, $color);
+
+    if (!empty($_SESSION['is_connected'])) {
+        $data['user_decks'] = get_user_decks($pdo, $_SESSION['user_id']);
+    }
 
     return render("app/views/catalogue.php", $data);
 }

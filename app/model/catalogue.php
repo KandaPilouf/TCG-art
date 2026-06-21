@@ -2,14 +2,14 @@
 
 function get_all_items($pdo)
 {
-    $sql = "SELECT name, artist, img, slug FROM card WHERE is_deleted = 0";
+    $sql = "SELECT name, artist, img, slug, id FROM card WHERE is_deleted = 0";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll();
 }
 
 function filter_cards($pdo, $q, $tag, $style, $universe, $color)
 {
-    $sql = "SELECT card.name, card.artist, card.img, card.slug
+    $sql = "SELECT card.name, card.artist, card.img, card.slug, card.id
             FROM card
             LEFT JOIN card_tag ON card_tag.id_card = card.id
             LEFT JOIN style    ON style.id    = card.style_id
@@ -93,6 +93,14 @@ function get_colors($pdo)
 {
     $sql = "SELECT id, color FROM color";
     $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+function get_user_decks($pdo, $user_id)
+{
+    $sql = "SELECT id, name FROM deck WHERE id_user = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$user_id]);
     return $stmt->fetchAll();
 }
 

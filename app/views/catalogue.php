@@ -65,7 +65,22 @@
             </div>
             <div class="btn-pos">
                 <a class="btn-card" href="/catalogue/show/<?php echo $card['slug'] ?>">show card</a>
-                <a class="btn-card">Add card</a>
+                <?php
+                if (!empty($_SESSION['is_connected'])) { ?>
+                    <form action="/decks/add_card" method="POST">
+                        <input type="hidden" name="card_id" value="<?= $card['id'] ?>">
+                        <select name="deck_id" class="btn-add-deck">
+                            <?php
+                            foreach ($user_decks as $deck) { ?>
+                                <option value="<?= $deck['id'] ?>"><?= $deck['name'] ?></option>
+                            <?php
+                            } ?>
+                        </select>
+                        <button class="btn-add-deck" type="submit">Add to deck</button>
+
+                    </form>
+                <?php
+                } ?>
             </div>
         </figure>
     <?php
