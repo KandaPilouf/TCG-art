@@ -2,7 +2,7 @@
     <form action="/catalogue" method="GET">
         <input list="card_name" type="text" name="q" placeholder="Search cards" value="<?= isset($_GET['q']) ? escape($_GET['q']) : '' ?>">
 
-        <label for="tags">Tags</label>
+        <label for="tags"></label>
         <select name="tags">
             <option value="">All tags</option>
             <?php foreach ($tags as $tag) { ?>
@@ -12,7 +12,7 @@
             <?php } ?>
         </select>
 
-        <label for="styles">Styles</label>
+        <label for="styles"></label>
         <select name="style">
             <option value="">All styles</option>
             <?php
@@ -23,7 +23,7 @@
             <?php } ?>
         </select>
 
-        <label for="universe">Universe</label>
+        <label for="universe"></label>
         <select name="universe">
             <option value="">All universe</option>
             <?php
@@ -34,7 +34,7 @@
             <?php } ?>
         </select>
 
-        <label for="color">Color</label>
+        <label for="color"></label>
         <select name="color">
             <option value="">All colors</option>
             <?php
