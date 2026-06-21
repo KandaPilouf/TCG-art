@@ -114,6 +114,7 @@ main {
 #card_caption {
   position: relative;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 #cards #card_caption:hover figcaption {

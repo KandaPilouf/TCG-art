@@ -12,11 +12,13 @@
   margin: 0;
   padding: 0;
   box-shadow: 0 4px 18px rgba(26, 28, 44, 0.12);
+  border-radius: 20px;
 }
 
 #home_right > figure > img {
   width: 100%;
   display: block;
+  border-radius: 20px;
 }
 
 #home_right > figure > figcaption {
@@ -32,6 +34,7 @@
   padding-left: 15px;
   gap: 5px;
   color: white;
+  border-radius: 20px;
 
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(2px);
