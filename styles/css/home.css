@@ -2,6 +2,60 @@
   grid-column: 2 / span 5;
 }
 
+#home_left h1{
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxxl);
+  font-weight: 400;
+}
+
+#home_left h3, h4{
+  font-family: var(--subtitle-font);
+  text-transform: uppercase;
+}
+
+#home_left h3{
+  letter-spacing: 2px;
+}
+
+#home_left h4{
+  font-size: var(--fs-md);
+  opacity: 0.9;
+}
+
+#home_left h4{
+  font-size: var(--fs-base);
+}
+
+#home_left form{
+  display: flex;
+  height: 40px;
+  gap: 10px;
+}
+
+#home_left form input{
+  flex: 1;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  border-color: var(--main-color);
+  outline: none ;
+  border-radius: 0px;
+}
+
+#home_left form button{
+  background-color: var(--main-color);
+  outline: none;
+  color: var(--main-white);
+  width: 45px;
+  border-color: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#home_left form button:hover{
+  background-color: var(--main-white);
+  color: var(--main-color);
+}
+
 #home_right {
   grid-column: 9 / span 3;
 }

@@ -4,8 +4,6 @@
     <?php
     if (isset($_SESSION['is_connected'])) {
         echo "<h4> Hello " . $_SESSION['name'] . "</h4>";
-    } else {
-        echo "<h4>Hello</h4>";
     }
     ?>
 

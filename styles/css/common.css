@@ -112,18 +112,26 @@ ul {
   padding-inline-start: 0;
 }
 
+
 ul > li > a > svg {
   width: 30px;
   height: 30px;
   color: var(--accent-color);
+  transition: transform 0.2s;
 }
 
+ul > li > a > svg:hover {
+  transform: scale(1.2);
+}
 /* FOOTER STYLING */
 
 footer {
   width: 100%;
   padding: 20px 56px;
   border: solid 1px var(--main-color);
+  background-color: var(--main-color);
+  color: var(--main-white);
+  border-top: 2px solid var(--accent-color);
 }
 
 /* BTN POSITIONIN IN FIGURE*/
