@@ -1,3 +1,41 @@
-h1{
-    color: violet;
+main {
+  grid-template-rows: auto auto;
+}
+
+#user_info {
+  grid-row: 2/3;
+}
+
+#user {
+  grid-column: 1/-1;
+  display: flex;
+  flex-flow: column;
+  border-bottom: 5px solid black;
+}
+
+#user h1 {
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+}
+
+#user p {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+#user a {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--main-color);
+  background-color: var(--main-white);
+  padding: 5px;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+    width: fit-content;
+    margin: 1rem;
 }

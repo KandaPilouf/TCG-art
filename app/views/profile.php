@@ -1,4 +1,4 @@
-<div>
+<div id="user">
     <h1><?php echo $user['name'] ?></h1>
     <p>member since <?= $user['date'] ?></p>
 
@@ -10,7 +10,5 @@
     ?>
 </div>
 
-<div>
-    <p>cards owned</p>
-    <p>collections</p>
+<div id="user_info">
 </div>
