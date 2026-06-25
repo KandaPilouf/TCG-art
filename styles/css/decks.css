@@ -2,14 +2,16 @@ main {
   grid-template-rows: auto auto;
 }
 
-#title{
+/* Deck cards page */
+
+#title {
   grid-column: 2/12;
   display: flex;
   justify-content: start;
   border-bottom: 5px solid black;
 }
 
-#title h1{
+#title h1 {
   font-family: var(--h1-font);
   font-size: var(--fs-xxl);
   font-weight: 400;
@@ -83,4 +85,64 @@ main {
 
 #cards #card_caption:hover img {
   transform: scale(1.03);
+}
+
+/* Deck list page */
+
+#decks-list {
+  grid-column: 1/-1;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+#decks-list #content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+#decks-list #title {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  display: flex;
+  justify-content: start;
+  border-bottom: 5px solid black;
+}
+
+#decks-list form{
+  display: flex;
+  height: 40px;
+  gap: 10px;
+}
+
+#decks-list form button{
+ background-color: var(--main-color);
+  outline: none;
+  color: var(--main-white);
+  border-color: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#decks-list form input{
+  width: 30vw;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  border-color: var(--main-color);
+  outline: none ;
+  border-radius: 0px;
+}
+
+#decks-list #content a{
+  text-decoration: none;
+  font-family: var(--h1-font);
+  font-weight: 400;
+  font-size: var(--fs-xl);
+  margin: 0;
+}
+
+#decks-list #content a:visited{
+  color: var(--main-color);
 }
