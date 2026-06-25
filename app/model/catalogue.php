@@ -129,3 +129,17 @@ function search_cards($pdo, $q)
     $stmt->execute([$like, $like, $like, $like, $like, $like]);
     return $stmt->fetchAll();
 }
+
+function get_decks_with_card($pdo, $user_id, $card_id)
+{
+    $sql = "SELECT id_deck
+            FROM card_deck
+            JOIN deck ON deck.id = card_deck.id_deck
+            WHERE card_deck.id_card = ?
+            AND deck.id_user = ?";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$card_id, $user_id]);
+
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}

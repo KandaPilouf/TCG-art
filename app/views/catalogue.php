@@ -73,7 +73,8 @@
                         <select name="deck_id" class="btn-add-deck">
                             <?php
                             foreach ($user_decks as $deck) { ?>
-                                <option value="<?= $deck['id'] ?>"><?= $deck['name'] ?></option>
+                                <option value="<?= $deck['id'] ?>">
+                                    <?= $deck['name'] ?></option>
                             <?php
                             } ?>
                         </select>

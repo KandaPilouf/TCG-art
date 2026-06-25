@@ -18,7 +18,8 @@
             <select name="deck_id" class="btn-add-deck">
                 <?php
                 foreach ($user_decks as $deck) { ?>
-                    <option value="<?= $deck['id'] ?>"><?= $deck['name'] ?></option>
+                    <?php $already = in_array($deck['id'], $decks_with_card) ?>
+                    <option value="<?= $deck['id'] ?>" <?= $already ? 'disabled' : '' ?>><?= $deck['name'] ?> <?= $already ? 'already in deck' : '' ?></option>
                 <?php
                 } ?>
             </select>
