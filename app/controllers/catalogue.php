@@ -27,5 +27,10 @@ function catalogue_show($pdo, $slug)
 {
     $data = [];
     $data['card'] = get_one_item($pdo, $slug);
+
+    if (!empty($_SESSION['is_connected'])) {
+        $data['user_decks'] = get_user_decks($pdo, $_SESSION['user_id']);
+    }
+
     return render("app/views/item.php", $data);
 }

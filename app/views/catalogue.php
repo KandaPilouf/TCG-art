@@ -68,6 +68,7 @@
                 <?php
                 if (!empty($_SESSION['is_connected'])) { ?>
                     <form action="/decks/add_card" method="POST">
+                        <input type="hidden" name="redirect" value="/catalogue">
                         <input type="hidden" name="card_id" value="<?= $card['id'] ?>">
                         <select name="deck_id" class="btn-add-deck">
                             <?php

@@ -54,7 +54,13 @@ function decks_add_card($pdo)
             add_card_to_deck($pdo, $deck_id, $card_id);
         }
     }
-    redirect('/catalogue');
+    $redirect = $_POST['redirect'] ?? '/catalogue';
+
+    if (!str_starts_with($redirect, '/') || str_starts_with($redirect, '//')) {
+        $redirect = '/catalogue';
+    }
+
+    redirect($redirect);
 }
 
 function decks_remove_card($pdo)

@@ -31,6 +31,5 @@
     </figure>
     <div class="btn-pos">
         <a class="btn-card" href="/catalogue/show/<?php echo $card['slug'] ?>">Show card</a>
-        <a class="btn-card">Add card</a>
     </div>
 </div>
