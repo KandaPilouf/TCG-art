@@ -162,6 +162,13 @@ footer {
   font-family: var(--subtitle-font);
 }
 
+.btn-card:hover {
+  cursor: pointer;
+  color: var(--main-color);
+  background-color: var(--main-white);
+  border: solid 1px var(--main-color);
+}
+
 .btn-add-deck {
   display: flex;
   justify-content: center;

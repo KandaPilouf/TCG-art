@@ -15,9 +15,10 @@ function get_user_deck($pdo, $deck_id)
     return $stmt->fetch();
 }
 
-function get_deck_cards($pdo, $deck_id){
-    
-    $sql = "SELECT card.name, card.slug, card.img, card.artist 
+function get_deck_cards($pdo, $deck_id)
+{
+
+    $sql = "SELECT card.name, card.slug, card.img, card.artist, card.id 
             FROM card
             JOIN card_deck ON card_deck.id_card = card.id
             WHERE card_deck.id_deck = ?
@@ -26,7 +27,6 @@ function get_deck_cards($pdo, $deck_id){
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$deck_id]);
     return $stmt->fetchAll();
-
 }
 
 function add_deck($pdo, $user_id, $name)
@@ -37,9 +37,18 @@ function add_deck($pdo, $user_id, $name)
     $stmt->execute([$user_id, $name]);
 }
 
-function add_card_to_deck($pdo, $deck_id, $card_id){
+function add_card_to_deck($pdo, $deck_id, $card_id)
+{
 
     $sql = "INSERT INTO card_deck (id_card, id_deck) VALUES (?,?)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$card_id, $deck_id]);
+}
+
+function remove_card_from_deck($pdo, $card_id, $deck_id)
+{
+    $sql = "DELETE FROM card_deck WHERE id_deck = ? AND id_card = ?";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$deck_id, $card_id]);
 }

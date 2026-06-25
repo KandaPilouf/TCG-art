@@ -56,3 +56,21 @@ function decks_add_card($pdo)
     }
     redirect('/catalogue');
 }
+
+function decks_remove_card($pdo)
+{
+    require_connected();
+
+    if (is_post()) {
+        $card_id = $_POST['card_id'];
+        $deck_id = $_POST['deck_id'];
+
+        $deck = get_user_deck($pdo, $deck_id);
+
+        if ($deck && $deck['id_user'] == $_SESSION['user_id']) {
+            remove_card_from_deck($pdo, $card_id, $deck_id);
+        }
+        redirect('/decks/show/' . $deck_id);
+    }
+    redirect('/decks');
+}
