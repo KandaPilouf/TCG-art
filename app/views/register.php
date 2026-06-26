@@ -1,4 +1,4 @@
-<H1>Hello register</H1>
+<H1>Register</H1>
 
 <form action="/register" method="POST">
     <label for="name"></label>
