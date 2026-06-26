@@ -1,0 +1,52 @@
+h1 {
+  grid-column: 2/12;
+  display: flex;
+  justify-content: start;
+  border-bottom: 5px solid black;
+
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+}
+
+form {
+  grid-column: 5/9;
+  grid-row: 2/3;
+  height: auto;
+  border: solid 1px black;
+  padding: 2rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+form label {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-md);
+}
+
+form input {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  border-color: var(--main-color);
+  outline: none;
+  border-radius: 0px;
+}
+
+form button {
+  background-color: var(--main-color);
+  outline: none;
+  color: var(--main-white);
+  width: 45px;
+  border-color: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: var(--main-white);
+  color: var(--main-color);
+}

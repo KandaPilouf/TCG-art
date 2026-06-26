@@ -1,3 +1,5 @@
+    <h1>Login</h1>
+    
     <form method="POST" action="/login">
         <label for="email">Email</label>
         <input id="email" name="email" value="" required>
