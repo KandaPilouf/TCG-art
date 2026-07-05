@@ -1,0 +1,137 @@
+/* Admin card-attributes page — entity is "attributes". Self-contained, mirrors
+   the visual language of the other admin pages. */
+
+main {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1 {
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--main-color);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 10px 0 0;
+  border-radius: 3px;
+  background: var(--accent-color);
+}
+
+.admin-sub {
+  margin: 0.9rem 0 1.8rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--secondary-color);
+}
+
+.attr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.attr-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  background: var(--main-white);
+  border: 1px solid rgba(26, 28, 44, 0.12);
+  border-top: 3px solid var(--accent-color);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px -16px rgba(26, 28, 44, 0.5);
+}
+
+.attr-card h2 {
+  margin: 0 0 14px;
+  font-family: var(--h1-font);
+  font-weight: 400;
+  font-size: var(--fs-lg);
+  letter-spacing: 0.02em;
+  color: var(--main-color);
+}
+
+.attr-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 210px;
+  overflow-y: auto;
+}
+
+.attr-list li {
+  padding: 4px 12px;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-sm);
+  color: var(--main-color);
+  background: rgba(26, 28, 44, 0.06);
+  border: 1px solid rgba(26, 28, 44, 0.12);
+  border-radius: 999px;
+}
+
+.attr-list li.attr-empty {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+.attr-form {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.attr-form input {
+  flex: 1;
+  min-width: 0;
+  height: 2.6rem;
+  padding: 0 0.85rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--main-color);
+  background: white;
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.attr-form input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.35);
+}
+
+.attr-form button {
+  flex: 0 0 auto;
+  height: 2.6rem;
+  padding: 0 1.1rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--main-color);
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.attr-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -8px rgba(201, 168, 76, 0.7);
+}
+
+.attr-form button:active {
+  transform: translateY(0);
+}

@@ -1,4 +1,5 @@
 <div id="home_left">
+    <p class="eyebrow">Trading card art gallery</p>
     <h1>TCG ART</h1>
     <h3>collect your art</h3>
     <?php
@@ -21,15 +22,59 @@
         </button>
     </form>
 
+    <a class="home-cta" href="/catalogue">Browse the catalogue →</a>
+
+    <dl class="home-stats">
+        <div>
+            <dt data-count="<?= (int) $stats['cards'] ?>">0</dt>
+            <dd>Cards</dd>
+        </div>
+        <div>
+            <dt data-count="<?= (int) $stats['universes'] ?>">0</dt>
+            <dd>Universes</dd>
+        </div>
+        <div>
+            <dt data-count="<?= (int) $stats['styles'] ?>">0</dt>
+            <dd>Styles</dd>
+        </div>
+        <div>
+            <dt data-count="<?= (int) $stats['artists'] ?>">0</dt>
+            <dd>Artists</dd>
+        </div>
+    </dl>
 </div>
 <div id="home_right">
-    <figure title="main home card">
-        <img src=<?php echo $card['img']; ?> alt=<?php echo $card['name']; ?>>
-        <figcaption>
-            <span>Artist: <?php echo $card['artist']; ?></span>
-        </figcaption>
-    </figure>
+    <div class="hero-float">
+        <figure title="main home card" class="hero-card">
+            <img src=<?php echo $card['img']; ?> alt=<?php echo $card['name']; ?>>
+            <span class="hero-shine" aria-hidden="true"></span>
+            <figcaption>
+                <span class="hero-name"><?php echo $card['name']; ?></span>
+                <span>Artist: <?php echo $card['artist']; ?></span>
+            </figcaption>
+        </figure>
+    </div>
     <div class="btn-pos">
         <a class="btn-card" href="/catalogue/show/<?php echo $card['slug'] ?>">Show card</a>
     </div>
 </div>
+
+<script>
+// Count-up on the home stats, once, respecting reduced-motion.
+(function () {
+    var dts = document.querySelectorAll('.home-stats dt');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    dts.forEach(function (dt) {
+        var target = parseInt(dt.dataset.count, 10) || 0;
+        if (reduce || target === 0) { dt.textContent = target; return; }
+        var start = null, dur = 1100;
+        function step(t) {
+            if (!start) start = t;
+            var p = Math.min((t - start) / dur, 1);
+            dt.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    });
+})();
+</script>

@@ -1,13 +1,14 @@
-<h1>DELETE CARD PAGE</h1>
+<h1>DELETE CARD</h1>
+<p class="admin-sub">Remove a card from the catalogue.</p>
 
-<?php
-foreach ($cards as $card) { ?>
-
-    <form action="/admin/card/delete" method="POST">
-        <h2><?= $card['name'] ?></h2>
-        <input type="hidden" name="id" value="<?= $card['id'] ?>">
-        <button type="submit"> DELETE </button>
-    </form>
-<?php
-}
-?>
+<ul class="admin-list">
+    <?php foreach ($cards as $card) { ?>
+        <li>
+            <span><?= escape($card['name']) ?></span>
+            <form action="/admin/card/delete" method="POST">
+                <input type="hidden" name="id" value="<?= $card['id'] ?>">
+                <button type="submit" class="admin-btn danger">Delete</button>
+            </form>
+        </li>
+    <?php } ?>
+</ul>

@@ -1,111 +1,346 @@
+main {
+  grid-template-rows: 100%;
+  align-items: center;
+}
+
+/* ---------- Left column ---------- */
+
 #home_left {
   grid-column: 2 / span 5;
 }
 
-#home_left h1{
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent-color);
+}
+
+#home_left h1 {
   font-family: var(--h1-font);
   font-size: var(--fs-xxxl);
   font-weight: 400;
+  line-height: 0.95;
+  /* Subtle ink-to-accent gradient on the wordmark for a premium finish. */
+  background: linear-gradient(100deg, var(--main-color) 55%, var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-#home_left h3, h4{
+#home_left h3,
+h4 {
   font-family: var(--subtitle-font);
   text-transform: uppercase;
 }
 
-#home_left h3{
+#home_left h3 {
   letter-spacing: 2px;
+  color: var(--secondary-color);
 }
 
-#home_left h4{
-  font-size: var(--fs-md);
+#home_left h4 {
+  font-size: var(--fs-base);
   opacity: 0.9;
 }
 
-#home_left h4{
-  font-size: var(--fs-base);
-}
-
-#home_left form{
+#home_left form {
   display: flex;
-  height: 40px;
+  height: 44px;
   gap: 10px;
+  margin-top: 1.4rem;
+  max-width: 460px;
 }
 
-#home_left form input{
+#home_left form input {
   flex: 1;
+  padding: 0 1rem;
   font-family: var(--subtitle-font);
   font-size: var(--fs-base);
-  border-color: var(--main-color);
-  outline: none ;
-  border-radius: 0px;
-}
-
-#home_left form button{
-  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
   outline: none;
-  color: var(--main-white);
-  width: 45px;
-  border-color: none;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-#home_left form button:hover{
-  background-color: var(--main-white);
+#home_left form input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.35);
+}
+
+#home_left form button {
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-color);
+  color: var(--main-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+#home_left form button:hover {
+  background-color: var(--accent-color);
   color: var(--main-color);
 }
+
+#home_left form button:active {
+  transform: translateY(1px);
+}
+
+.home-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--main-color);
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 2px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.home-cta:hover {
+  color: var(--accent-color);
+}
+
+/* ---------- Stats ---------- */
+
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 2.2rem;
+  margin: 2.4rem 0 0;
+}
+
+.home-stats div {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.home-stats div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--accent-color);
+}
+
+.home-stats dt {
+  font-family: var(--h1-font);
+  font-size: var(--fs-xl);
+  line-height: 1;
+  color: var(--main-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-stats dd {
+  margin: 4px 0 0;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--secondary-color);
+}
+
+/* ---------- Right column: hero card ---------- */
 
 #home_right {
   grid-column: 9 / span 3;
 }
 
-#home_right > figure {
-  position: relative;
-  height: 80%;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 4px 18px rgba(26, 28, 44, 0.12);
-  border-radius: 20px;
+/* The wrapper owns the entrance + idle-float animations. Keeping them off the
+   figure means the hover transform (below) never fights an animation, so the
+   scale transitions smoothly instead of snapping. */
+.hero-float {
+  perspective: 1000px;
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
+             hero-float 6s ease-in-out 0.8s infinite;
 }
 
-#home_right > figure > img {
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-3deg) scale(0.96);
+  }
+}
+
+@keyframes hero-float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+#home_right figure {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px -18px rgba(26, 28, 44, 0.55);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  /* Fully-opaque mask forces the browser to keep clipping to the border-radius
+     during the 3D hover transform — without it Chrome flashes square corners. */
+  -webkit-mask-image: linear-gradient(#fff, #fff);
+  mask-image: linear-gradient(#fff, #fff);
+}
+
+/* Grow the whole card, not the image inside the frame. */
+#home_right figure:hover {
+  transform: scale(1.06) rotateX(3deg) rotateY(-5deg);
+  box-shadow: -14px 26px 50px -18px rgba(26, 28, 44, 0.6),
+              0 0 0 1px rgba(201, 168, 76, 0.4),
+              0 0 34px -6px rgba(201, 168, 76, 0.45);
+}
+
+#home_right figure > img {
   width: 100%;
   display: block;
   border-radius: 20px;
 }
 
-#home_right > figure > figcaption {
+/* Diagonal light sweep on hover. */
+.hero-shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+#home_right figure:hover .hero-shine {
+  animation: hero-sweep 0.9s ease;
+}
+
+@keyframes hero-sweep {
+  to {
+    left: 125%;
+  }
+}
+
+#home_right figure figcaption {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 200px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
-  padding-left: 15px;
-  gap: 5px;
+  justify-content: flex-end;
+  padding: 42px 16px 14px;
+  gap: 1px;
   color: white;
-  border-radius: 20px;
-
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-
-  mask-image: linear-gradient(to top, black 40%, transparent);
-  -webkit-mask-image: linear-gradient(to top, black 40%, transparent);
-
+  /* Slim gradient that fades to transparent — no heavy black block. */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
-
-#home_right > figure > figcaption > span{
-    font-family: var(--subtitle-font);
-    font-size: var(--fs-md);
-    color: var(--main-white);
+#home_right figure figcaption > span {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-sm);
+  color: rgba(245, 240, 232, 0.85);
 }
-main {
-  grid-template-rows: 100%;
-  align-items: center;
+
+.hero-card figcaption .hero-name {
+  font-family: var(--h1-font);
+  font-size: var(--fs-md);
+  letter-spacing: 0.02em;
+  color: var(--main-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float {
+    animation: none;
+  }
+  #home_right figure:hover {
+    transform: scale(1.03);
+  }
+  .hero-shine {
+    display: none;
+  }
+}
+
+/* ---------- Admin dashboard ----------
+   The admin index routes as entity "home", so it loads this sheet. Everything
+   here is scoped under .admin-dash, which the public home page never renders. */
+
+.admin-dash {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.admin-dash h1 {
+  font-family: var(--h1-font);
+  font-size: var(--fs-xxl);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--main-color);
+}
+
+.admin-dash .admin-sub {
+  margin: 0.6rem 0 0;
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-base);
+  color: var(--secondary-color);
+}
+
+.admin-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 2.2rem;
+}
+
+.admin-action {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 22px 24px;
+  background: var(--main-white);
+  border: 1px solid rgba(26, 28, 44, 0.12);
+  border-top: 3px solid var(--accent-color);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px -16px rgba(26, 28, 44, 0.5);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.admin-action:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 20px 38px -18px rgba(26, 28, 44, 0.55);
+}
+
+.admin-action-title {
+  font-family: var(--h1-font);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.02em;
+  color: var(--main-color);
+}
+
+.admin-action-desc {
+  font-family: var(--subtitle-font);
+  font-size: var(--fs-sm);
+  color: var(--secondary-color);
 }
