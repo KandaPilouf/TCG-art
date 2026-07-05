@@ -9,9 +9,19 @@ body {
   margin: 0;
   background-color: var(--main-white);
   min-height: 100vh;
-  min-width: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+/* Subtle film grain over the whole page to break up flat fills. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 h1 {

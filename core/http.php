@@ -41,9 +41,7 @@ function http_in(string $request_uri): array
     }
 
     // Les doubles slash sont du bruit de format.
-    while (str_contains($path, '//')) {
-        $path = str_replace('//', '/', $path);
-    }
+    $path = preg_replace('#/+#', '/', $path);
 
     // Les slash et espaces aux frontières ne sont pas des segments.
     $path = trim($path, ' /');

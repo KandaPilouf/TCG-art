@@ -1,20 +1,15 @@
 <?php
 
-function get_all_items($pdo)
-{
-    $sql = "SELECT name, artist, img, slug, id FROM card WHERE is_deleted = 0";
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll();
-}
-
 function filter_cards($pdo, $q, $tag, $style, $universe, $color)
 {
-    $sql = "SELECT card.name, card.artist, card.img, card.slug, card.id
+    $sql = "SELECT card.name, card.artist, card.img, card.slug, card.id,
+                   color.color AS color, variant.variant AS variant
             FROM card
             LEFT JOIN card_tag ON card_tag.id_card = card.id
             LEFT JOIN style    ON style.id    = card.style_id
             LEFT JOIN universe ON universe.id = card.universe_id
-            LEFT JOIN color ON color.id = card.primary_color_id
+            LEFT JOIN color    ON color.id   = card.primary_color_id
+            LEFT JOIN variant  ON variant.id = card.variant_id
             WHERE card.is_deleted = 0";
 
     $params = [];
@@ -45,6 +40,21 @@ function filter_cards($pdo, $q, $tag, $style, $universe, $color)
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
     return $stmt->fetchAll();
+}
+
+function get_featured_card($pdo)
+{
+    $sql = "SELECT card.name, card.slug, card.img, card.artist,
+                   universe.universe, style.style, color.color, variant.variant
+            FROM card
+            LEFT JOIN universe ON universe.id = card.universe_id
+            LEFT JOIN style    ON style.id    = card.style_id
+            LEFT JOIN color    ON color.id    = card.primary_color_id
+            LEFT JOIN variant  ON variant.id  = card.variant_id
+            WHERE card.is_deleted = 0
+            ORDER BY RAND()
+            LIMIT 1";
+    return $pdo->query($sql)->fetch();
 }
 
 function get_one_item($pdo, $slug)
@@ -101,32 +111,6 @@ function get_user_decks($pdo, $user_id)
     $sql = "SELECT id, name FROM deck WHERE id_user = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$user_id]);
-    return $stmt->fetchAll();
-}
-
-function search_cards($pdo, $q)
-{
-    $sql = "SELECT card.name, card.artist, card.img, card.slug
-            FROM card
-            JOIN universe ON universe.id = card.universe_id
-            JOIN color    ON color.id    = card.primary_color_id
-            JOIN style    ON style.id    = card.style_id
-            LEFT JOIN card_tag ON card_tag.id_card = card.id
-            LEFT JOIN tag      ON tag.id = card_tag.id_tag
-            WHERE card.is_deleted = 0
-            AND (
-                card.name      LIKE ?
-                OR card.artist LIKE ?
-                OR universe.universe LIKE ?
-                OR color.color       LIKE ?
-                OR style.style       LIKE ?
-                OR tag.tag           LIKE ?
-            )
-            GROUP BY card.id";
-
-    $stmt = $pdo->prepare($sql);
-    $like = '%' . $q . '%';
-    $stmt->execute([$like, $like, $like, $like, $like, $like]);
     return $stmt->fetchAll();
 }
 

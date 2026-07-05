@@ -76,7 +76,6 @@ function run(array $route, string $base_path, $pdo): string
 
     // Si le fichier controller n'existe pas, la route ne peut pas être traitée.
     if (!is_file($controller_filepath)) {
-        var_dump($controller_filepath);
         throw new RuntimeException('Controller not found: ' . $route['entity']);
     }
 
@@ -108,14 +107,8 @@ function is_safe_segment(string $part): bool
 
     // Liste volontairement limitée de caractères autorisés dans les routes.
     $allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-';
-    $length = strlen($part);
 
-    // Chaque caractère est vérifié séparément, sans expression régulière.
-    for ($i = 0; $i < $length; $i++) {
-        if (strpos($allowed, $part[$i]) === false) {
-            return false;
-        }
-    }
-
-    return true;
+    // strspn compte les caractères initiaux qui appartiennent à $allowed :
+    // si ce compte couvre toute la chaîne, aucun caractère interdit n'est présent.
+    return strspn($part, $allowed) === strlen($part);
 }

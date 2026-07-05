@@ -4,18 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/css/colors.css">
-    <link rel="stylesheet" href="/styles/css/fonts.css">
-    <link rel="stylesheet" href="/styles/css/typo.css">
-    <link rel="stylesheet" href="/styles/css/common.css">
-
     <?php
-    $page_css = __DIR__ . '/../../styles/css/' . $entity . '.css';
-
-    if (is_file($page_css)) {
-    ?>
-        <link rel="stylesheet" href="/styles/css/<?php echo $entity ?>.css">
-    <?php
+    // Version each stylesheet with its file mtime so browsers refetch on edit.
+    $css_dir = __DIR__ . '/../../styles/css/';
+    foreach (['colors', 'fonts', 'typo', 'common', $entity] as $sheet) {
+        $file = $css_dir . $sheet . '.css';
+        if (is_file($file)) {
+            echo '<link rel="stylesheet" href="/styles/css/' . $sheet . '.css?v=' . filemtime($file) . '">' . "\n";
+        }
     }
     ?>
 </head>

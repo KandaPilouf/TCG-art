@@ -16,6 +16,11 @@ function catalogue_index($pdo)
     $data['colors'] = get_colors($pdo);
     $data['cards'] = filter_cards($pdo, $q, $tags, $style, $universe, $color);
 
+    // Featured card only on the unfiltered catalogue (no focal hero while searching).
+    if ($q === '' && $tags === '' && $style === '' && $universe === '' && $color === '') {
+        $data['featured'] = get_featured_card($pdo);
+    }
+
     if (!empty($_SESSION['is_connected'])) {
         $data['user_decks'] = get_user_decks($pdo, $_SESSION['user_id']);
     }
