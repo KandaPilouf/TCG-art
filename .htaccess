@@ -1,4 +1,8 @@
 RewriteEngine On
+
+# Block direct web access to secrets and DB dumps
+RedirectMatch 404 (?i)/(\.env|.*\.sql)$
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [L]
