@@ -26,9 +26,6 @@ function is_valid_attribute_type($type)
 
 function get_attribute_list($pdo, $type)
 {
-    if (!is_valid_attribute_type($type)) {
-        return [];
-    }
     $t = attribute_types()[$type];
     // $t['table'] / $t['column'] are constants from the allowlist above, not input.
     $sql = "SELECT id, `{$t['column']}` AS value FROM `{$t['table']}` ORDER BY `{$t['column']}`";
@@ -37,9 +34,6 @@ function get_attribute_list($pdo, $type)
 
 function attribute_exists($pdo, $type, $value)
 {
-    if (!is_valid_attribute_type($type)) {
-        return false;
-    }
     $t = attribute_types()[$type];
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM `{$t['table']}` WHERE `{$t['column']}` = ?");
     $stmt->execute([$value]);
