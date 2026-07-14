@@ -1,6 +1,6 @@
 <div id="home_left">
     <p class="eyebrow">Trading card art gallery</p>
-    <h1>TCG ART</h1>
+    <h1>TCG ARTS</h1>
     <h3>collect your art</h3>
     <?php
     if (isset($_SESSION['is_connected'])) {
