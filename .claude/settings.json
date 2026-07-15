@@ -8,7 +8,8 @@
       "Bash(grep -n -A3 \"INSERT INTO \\\\`style\\\\`\" database/tcg_card_art.sql)",
       "Bash(grep -n -A3 \"INSERT INTO \\\\`tag\\\\`\" database/tcg_card_art.sql)",
       "Bash(grep -A12 \"INSERT INTO \\\\`card\\\\`\" database/tcg_card_art.sql)",
-      "Bash(graphify query *)"
+      "Bash(graphify query *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://tcgarts.com.local/home)"
     ]
   }
 }

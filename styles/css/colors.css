@@ -3,4 +3,7 @@
     --secondary-color : #2C2F4A;
     --main-white: #F5F0E8;
     --accent-color : #C9A84C;
+    /* Header: 16px padding + 42px logo + 16px padding + 2px border. Keep in
+       sync with body > header in common.css. */
+    --header-h: 76px;
 }

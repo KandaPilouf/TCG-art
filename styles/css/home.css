@@ -1,5 +1,10 @@
-main {
-  grid-template-rows: 100%;
+/* Home hero fills exactly the space left under the sticky header, so the footer
+   sits just below the fold. dvh so mobile URL bars don't leave a gap.
+   align-content overrides common.css's `start`, which would pin rows to the top. */
+body > main {
+  min-height: calc(100dvh - var(--header-h));
+  grid-template-rows: 1fr;
+  align-content: center;
   align-items: center;
 }
 
