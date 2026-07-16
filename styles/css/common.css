@@ -80,11 +80,27 @@ body > header {
   width: 42px;
   height: 42px;
   display: block;
+  overflow: visible;
+}
+
+/* Hover fans the three stacked cards apart along the stack's own axis, the top
+   card travelling furthest. */
+#logo svg path {
   transition: transform 0.3s ease;
 }
 
-#logo > a:hover svg {
-  transform: rotate(-8deg) scale(1.06);
+#logo > a:hover .card-top {
+  transform: translateY(-2.5px);
+}
+
+#logo > a:hover .card-bot {
+  transform: translateY(2.5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #logo svg path {
+    transition: none;
+  }
 }
 
 .wordmark {
