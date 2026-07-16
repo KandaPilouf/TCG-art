@@ -569,6 +569,26 @@ main {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
+/* Override the global (ink track) scrollbar: transparent track and a thumb inset
+   from the panel's rounded corners so it doesn't clip past the 16px radius. No
+   standard scrollbar-color here — it would disable the webkit rules in Chrome. */
+.qv-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Shorten the rail so the thumb stops before the panel's rounded corners. */
+.qv-panel::-webkit-scrollbar-track-piece {
+  background: transparent;
+  margin: 10px 0;
+}
+
+.qv-panel::-webkit-scrollbar-thumb {
+  background: rgba(26, 28, 44, 0.94);
+  /* Wider transparent border keeps the thumb clear of the rounded corners. */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
 .qv.open .qv-panel {
   opacity: 1;
   transform: none;

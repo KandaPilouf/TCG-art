@@ -5,17 +5,18 @@
   box-sizing: border-box;
 }
 
-/* Scrollbars in the site palette: cream thumb on an ink track. Firefox gets the
-   standard properties; WebKit/Blink the pseudo-elements. */
-* {
-  scrollbar-width: thin;
-  /* Track uses the header's translucent ink (--main-color @ 0.94). */
-  scrollbar-color: var(--main-white) rgba(26, 28, 44, 0.94);
-}
-
+/* Scrollbars in the site palette: cream thumb on an ink track, via the WebKit/
+   Blink pseudo-elements. Deliberately NOT using the standard scrollbar-width/
+   scrollbar-color here: in Chrome, setting either one disables all
+   ::-webkit-scrollbar rules (including -button), leaving native arrows. Firefox
+   falls back to its default bar; restore it later with an @supports block. */
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
 }
 
 *::-webkit-scrollbar-track {
