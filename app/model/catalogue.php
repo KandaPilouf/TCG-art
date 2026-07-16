@@ -136,14 +136,6 @@ function get_colors($pdo)
     return $stmt->fetchAll();
 }
 
-function get_user_decks($pdo, $user_id)
-{
-    $sql = "SELECT id, name FROM deck WHERE id_user = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$user_id]);
-    return $stmt->fetchAll();
-}
-
 function get_decks_with_card($pdo, $user_id, $card_id)
 {
     $sql = "SELECT id_deck

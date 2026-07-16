@@ -1,5 +1,6 @@
 <?php
 require 'app/model/register.php';
+require 'app/model/login.php'; // find_user_by_email
 
 function register_index($pdo)
 {

@@ -1,5 +1,6 @@
 <?php
 require './app/model/catalogue.php';
+require './app/model/decks.php'; // get_user_decks
 
 function catalogue_index($pdo)
 {

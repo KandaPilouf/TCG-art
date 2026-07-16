@@ -5,11 +5,9 @@
   box-sizing: border-box;
 }
 
-/* Scrollbars in the site palette: cream thumb on an ink track, via the WebKit/
-   Blink pseudo-elements. Deliberately NOT using the standard scrollbar-width/
-   scrollbar-color here: in Chrome, setting either one disables all
-   ::-webkit-scrollbar rules (including -button), leaving native arrows. Firefox
-   falls back to its default bar; restore it later with an @supports block. */
+/* WebKit/Blink pseudo-elements only. NOT the standard scrollbar-width/-color:
+   in Chrome either one disables all ::-webkit-scrollbar rules (incl -button,
+   the arrows). Firefox falls back to its default bar. */
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -40,8 +38,7 @@ body {
   margin: 0;
   background-color: var(--main-white);
   min-height: 100vh;
-  /* Flex column (not grid) so position:sticky on the header resolves against the
-     page scroll instead of being trapped in a single grid track. */
+  /* Flex column, not grid: lets the sticky header resolve against page scroll. */
   display: flex;
   flex-direction: column;
 }

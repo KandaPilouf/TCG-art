@@ -1,5 +1,5 @@
-/* Block flow (not the base 12-col grid) so the sticky filter bar's containing
-   block is the full page height, letting it actually pin while scrolling. */
+/* Block flow, not the 12-col grid: gives the sticky filter bar a full-height
+   containing block so it actually pins. */
 main {
   display: block;
   overflow: visible;
@@ -362,8 +362,8 @@ main {
 }
 
 /* ---------- Scroll-reveal animation ---------- */
-/* Guarded by html.js-cards (set before cards paint, so no flicker) and only
-   under no-preference so reduced-motion users see cards immediately. */
+/* html.js-cards (set before paint, no flicker) + no-preference so reduced-motion
+   users see cards immediately. */
 @media (prefers-reduced-motion: no-preference) {
   html.js-cards #cards figure {
     opacity: 0;
@@ -569,9 +569,8 @@ main {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* Override the global (ink track) scrollbar: transparent track and a thumb inset
-   from the panel's rounded corners so it doesn't clip past the 16px radius. No
-   standard scrollbar-color here — it would disable the webkit rules in Chrome. */
+/* Override the global scrollbar: transparent track, thumb inset from the panel's
+   16px corners. No standard scrollbar-color — it disables webkit rules in Chrome. */
 .qv-panel::-webkit-scrollbar-track {
   background: transparent;
 }
@@ -642,9 +641,8 @@ main {
   align-items: start;
 }
 
-/* The shadow lives on the img itself, which is sized to the art (width: auto).
-   On a full-width box, object-fit letterboxes the scan and the shadow would
-   draw around the empty box instead of hugging the card. */
+/* Shadow on the img, sized to the art (width: auto). At full width, object-fit
+   letterboxes and the shadow would draw around the box, not the card. */
 .item-art {
   display: flex;
   justify-content: center;
@@ -666,8 +664,8 @@ main {
   gap: 0.8rem;
 }
 
-/* Own class: .eyebrow is defined in home.css (home-only) and scoped to
-   .featured-body here, so a bare .eyebrow would land unstyled. */
+/* Own class: .eyebrow lives in home.css (home-only) / scoped to .featured-body
+   here, so a bare .eyebrow would be unstyled. */
 .item-eyebrow {
   margin: 0;
   font-family: var(--subtitle-font);
@@ -822,8 +820,8 @@ main {
   color: var(--secondary-color);
 }
 
-/* Mirrors the catalogue's .add-deck select, recoloured for the light panel and
-   with an explicit submit button (no #cards listener reaches this form). */
+/* Mirrors .add-deck, recoloured for the light panel + explicit submit button
+   (the #cards auto-submit listener doesn't reach this form). */
 .item-add-deck {
   width: 100%;
   margin-top: 0.4rem;

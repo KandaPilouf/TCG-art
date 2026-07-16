@@ -1,12 +1,8 @@
 <?php
 
-/*
-    Card attribute (lookup table) management.
-
-    Injection safety: SQL identifiers (table + column names) are NEVER taken from
-    user input. They come only from this hardcoded allowlist, keyed by a $type the
-    caller must match exactly. The user-supplied value is always a bound parameter.
-*/
+// Lookup-table (attribut) management.
+// Injection: les identifiants SQL (table/colonne) viennent uniquement de
+// l'allowlist ci-dessous, jamais de l'input. La valeur user est toujours bindée.
 
 function attribute_types()
 {
