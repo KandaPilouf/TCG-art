@@ -14,8 +14,11 @@ function filter_cards($pdo, $q, $tag, $style, $universe, $color)
 
     $params = [];
 
+    // Match artist too, so the card page's artist link (and a plain artist search)
+    // find that artist's work, not just cards whose title contains the string.
     if ($q !== '') {
-        $sql .= " AND card.name LIKE ?";
+        $sql .= " AND (card.name LIKE ? OR card.artist LIKE ?)";
+        $params[] = '%' . $q . '%';
         $params[] = '%' . $q . '%';
     }
     if ($tag !== '') {
@@ -59,23 +62,50 @@ function get_featured_card($pdo)
 
 function get_one_item($pdo, $slug)
 {
+    // LEFT JOIN: style/universe/variant/color are nullable, and inner joins would
+    // drop the whole card when any one of them is unset.
     $sql = "SELECT card.*,
        style.style, universe.universe, variant.variant, color.color,
-       GROUP_CONCAT(tag.tag SEPARATOR ', ') AS tags
+       GROUP_CONCAT(DISTINCT tag.tag ORDER BY tag.tag SEPARATOR ', ') AS tags,
+       GROUP_CONCAT(DISTINCT tag.id ORDER BY tag.tag SEPARATOR ',') AS tag_ids
         FROM card
-        JOIN style    ON style.id    = card.style_id
-        JOIN universe ON universe.id = card.universe_id
-        JOIN variant  ON variant.id  = card.variant_id
-        JOIN color    ON color.id    = card.primary_color_id
+        LEFT JOIN style    ON style.id    = card.style_id
+        LEFT JOIN universe ON universe.id = card.universe_id
+        LEFT JOIN variant  ON variant.id  = card.variant_id
+        LEFT JOIN color    ON color.id    = card.primary_color_id
         LEFT JOIN card_tag ON card_tag.id_card = card.id
         LEFT JOIN tag      ON tag.id = card_tag.id_tag
-        WHERE card.slug = ? 
+        WHERE card.slug = ?
         AND is_deleted = 0
         GROUP BY card.id
         ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$slug]);
     return $stmt->fetch();
+}
+
+// Cards sharing this card's universe, style or artist — closest match first.
+function get_related_cards($pdo, array $card, int $limit = 6)
+{
+    // Plain `=` (not `<=>`): NULL must not match NULL, or every card missing a
+    // universe would count as related to every other one.
+    $sql = "SELECT card.name, card.slug, card.img, card.artist,
+                   (COALESCE(card.universe_id = ?, 0)
+                    + COALESCE(card.style_id = ?, 0)
+                    + COALESCE(card.artist = ?, 0)) AS score
+            FROM card
+            WHERE card.is_deleted = 0
+              AND card.id <> ?
+              AND (card.universe_id = ? OR card.style_id = ? OR card.artist = ?)
+            ORDER BY score DESC, card.id DESC
+            LIMIT " . (int) $limit;
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        $card['universe_id'], $card['style_id'], $card['artist'], $card['id'],
+        $card['universe_id'], $card['style_id'], $card['artist'],
+    ]);
+    return $stmt->fetchAll();
 }
 
 function get_tags($pdo)
