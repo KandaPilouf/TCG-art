@@ -34,6 +34,13 @@ function get_tags($pdo){
     return $stmt->fetchAll();
 }
 
+function get_artists($pdo)
+{
+    $sql = "SELECT id, artist FROM artist ORDER BY artist";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
 function slugify($text)
 {
     $text = trim($text);
@@ -69,10 +76,10 @@ function unique_slug($pdo, $base)
     }
 }
 
-function add_card($pdo, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date, $tags)
+function add_card($pdo, $name, $slug, $img, $artist_id, $style, $variant, $color, $universe, $date, $tags)
 {
-    $stmt = $pdo->prepare("INSERT INTO `card` (`id`, `name`, `slug`, `artist`, `img`, `style_id`, `universe_id`, `creation_date`, `variant_id`, `primary_color_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-    $stmt->execute([$name, $slug, $artist, $img, $style, $universe, $date, $variant, $color]);
+    $stmt = $pdo->prepare("INSERT INTO `card` (`id`, `name`, `slug`, `artist_id`, `img`, `style_id`, `universe_id`, `creation_date`, `variant_id`, `primary_color_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+    $stmt->execute([$name, $slug, $artist_id, $img, $style, $universe, $date, $variant, $color]);
 
     $card_id = $pdo->lastInsertId();
     $tagStmt = $pdo->prepare("INSERT INTO card_tag (id_card, id_tag) VALUES (?,?)");
@@ -105,9 +112,9 @@ function get_card_tag_ids($pdo, $id) {
     return $stmt->fetchAll(PDO::FETCH_COLUMN);
 }
 
-function update_card($pdo, $id, $name, $slug, $img, $artist, $style, $variant, $color, $universe, $date, $tags) {
-    $stmt = $pdo->prepare("UPDATE card SET name = ?, slug = ?, artist = ?, img = ?, style_id = ?, universe_id = ?, creation_date = ?, variant_id = ?, primary_color_id = ? WHERE id = ?");
-    $stmt->execute([$name, $slug, $artist, $img, $style, $universe, $date, $variant, $color, $id]);
+function update_card($pdo, $id, $name, $slug, $img, $artist_id, $style, $variant, $color, $universe, $date, $tags) {
+    $stmt = $pdo->prepare("UPDATE card SET name = ?, slug = ?, artist_id = ?, img = ?, style_id = ?, universe_id = ?, creation_date = ?, variant_id = ?, primary_color_id = ? WHERE id = ?");
+    $stmt->execute([$name, $slug, $artist_id, $img, $style, $universe, $date, $variant, $color, $id]);
 
     // Re-sync tags: clear then re-insert the chosen set.
     $pdo->prepare("DELETE FROM card_tag WHERE id_card = ?")->execute([$id]);

@@ -18,9 +18,10 @@ function get_user_deck($pdo, $deck_id)
 function get_deck_cards($pdo, $deck_id)
 {
 
-    $sql = "SELECT card.name, card.slug, card.img, card.artist, card.id 
+    $sql = "SELECT card.name, card.slug, card.img, artist.artist AS artist, card.id
             FROM card
             JOIN card_deck ON card_deck.id_card = card.id
+            LEFT JOIN artist ON artist.id = card.artist_id
             WHERE card_deck.id_deck = ?
             AND card.is_deleted = 0";
 

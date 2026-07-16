@@ -38,7 +38,7 @@ $tags      = array_map(null, $tag_names, $tag_ids);
         <h1><?= escape($card['name']) ?></h1>
         <p class="item-artist">
             Artist:
-            <a href="/catalogue?<?= escape(http_build_query(['q' => $card['artist']])) ?>"><?= escape($card['artist']) ?></a>
+            <a href="/catalogue?<?= escape(http_build_query(['artist' => $card['artist_id']])) ?>"><?= escape($card['artist']) ?></a>
         </p>
 
         <?php if ($facets) { ?>

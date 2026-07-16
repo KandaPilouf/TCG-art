@@ -69,6 +69,16 @@
             ?>
         </select>
 
+        <label for="artist"></label>
+        <select name="artist">
+            <option value="">All artists</option>
+            <?php foreach ($artists as $artist) { ?>
+                <option value="<?= $artist['id'] ?>" <?= (isset($_GET['artist']) && $_GET['artist'] == $artist['id']) ? 'selected' : '' ?>>
+                    <?= escape($artist['artist']) ?>
+                </option>
+            <?php } ?>
+        </select>
+
         <button type="submit">Search</button>
     </form>
 </div>
@@ -81,6 +91,7 @@ $params = [
     'style'    => $_GET['style'] ?? '',
     'universe' => $_GET['universe'] ?? '',
     'color'    => $_GET['color'] ?? '',
+    'artist'   => $_GET['artist'] ?? '',
 ];
 $has_filters = implode('', $params) !== '';
 
@@ -97,7 +108,7 @@ $chips = [];
 if ($params['q'] !== '') {
     $chips[] = ['label' => 'Search: ' . $params['q'], 'key' => 'q'];
 }
-foreach ([['tags', $tags, 'tag'], ['style', $styles, 'style'], ['universe', $universes, 'universe'], ['color', $colors, 'color']] as [$key, $rows, $field]) {
+foreach ([['tags', $tags, 'tag'], ['style', $styles, 'style'], ['universe', $universes, 'universe'], ['color', $colors, 'color'], ['artist', $artists, 'artist']] as [$key, $rows, $field]) {
     if ($params[$key] === '') {
         continue;
     }
@@ -114,6 +125,9 @@ $color_hex = [
     'red' => '#c0392b', 'yellow' => '#c9a84c', 'blue' => '#2c6fb0',
     'green' => '#3a8f5b', 'black' => '#2b2d33', 'white' => '#cdbfa6',
     'purple' => '#7d5ba6', 'orange' => '#d08234', 'pink' => '#c96f9c',
+    'cyan' => '#3bb2c4', 'gold' => '#c9a84c', 'silver' => '#9aa2ad',
+    'crimson' => '#a01d2e', 'teal' => '#2b8f8f', 'violet' => '#8b5cf6',
+    'brown' => '#8a5a3c',
 ];
 ?>
 

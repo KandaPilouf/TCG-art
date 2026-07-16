@@ -9,16 +9,18 @@ function catalogue_index($pdo)
     $style = $_GET['style'] ?? '';
     $universe = $_GET['universe'] ?? '';
     $color = $_GET['color'] ?? '';
+    $artist = $_GET['artist'] ?? '';
 
     $data = [];
     $data['tags'] = get_tags($pdo);
     $data['styles'] = get_styles($pdo);
     $data['universes'] = get_universes($pdo);
     $data['colors'] = get_colors($pdo);
-    $data['cards'] = filter_cards($pdo, $q, $tags, $style, $universe, $color);
+    $data['artists'] = get_artists($pdo);
+    $data['cards'] = filter_cards($pdo, $q, $tags, $style, $universe, $color, $artist);
 
     // Featured card only on the unfiltered catalogue (no focal hero while searching).
-    if ($q === '' && $tags === '' && $style === '' && $universe === '' && $color === '') {
+    if ($q === '' && $tags === '' && $style === '' && $universe === '' && $color === '' && $artist === '') {
         $data['featured'] = get_featured_card($pdo);
     }
 

@@ -8,7 +8,11 @@
     <input id="img" name="img" value="" required>
 
     <label for="artist">Card artist</label>
-    <input id="artist" name="artist" value="" required>
+    <select name="artist" id="artist" required>
+        <?php foreach ($artists as $artist) { ?>
+            <option value="<?= $artist['id'] ?>"><?= escape($artist['artist']) ?></option>
+        <?php } ?>
+    </select>
 
     <label for="date">Card creation date</label>
     <input type="date" id="date" name="date" value="" required>

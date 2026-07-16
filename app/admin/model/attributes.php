@@ -12,6 +12,7 @@ function attribute_types()
         'color'    => ['table' => 'color',    'column' => 'color',    'label' => 'Colors'],
         'variant'  => ['table' => 'variant',  'column' => 'variant',  'label' => 'Variants'],
         'tag'      => ['table' => 'tag',       'column' => 'tag',       'label' => 'Tags'],
+        'artist'   => ['table' => 'artist',   'column' => 'artist',   'label' => 'Artists'],
     ];
 }
 

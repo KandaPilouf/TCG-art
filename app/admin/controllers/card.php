@@ -24,6 +24,7 @@ function card_add($pdo)
     }
 
     $data = [];
+    $data['artists'] = get_artists($pdo);
     $data['styles'] = get_styles($pdo);
     $data['universes'] = get_universe($pdo);
     $data['colors'] = get_color($pdo);
@@ -67,6 +68,7 @@ function card_edit($pdo, $id = null)
     $data = [];
     $data['card'] = $card;
     $data['selected_tags'] = get_card_tag_ids($pdo, $id);
+    $data['artists'] = get_artists($pdo);
     $data['styles'] = get_styles($pdo);
     $data['universes'] = get_universe($pdo);
     $data['colors'] = get_color($pdo);
