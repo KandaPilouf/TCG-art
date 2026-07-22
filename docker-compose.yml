@@ -1,16 +1,24 @@
 services:
+  web:
+    build: .
+    ports:
+      - "80:80"                          # site at http://localhost (stop XAMPP Apache first)
+    volumes:
+      - .:/var/www/html                  # live code — edits show without rebuild
+    depends_on:
+      - db
+
   db:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: root          # container root password
-      MYSQL_DATABASE: tcg_card_art       # DB created on first boot
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tcg_card_art
     ports:
-      - "3307:3306"                      # host:container — 3307 avoids clashing with XAMPP's 3306
+      - "3307:3306"                      # host access (VS Code, dumps); app uses 'db:3306' internally
     volumes:
-      - dbdata:/var/lib/mysql            # actual data — persists, NOT in git
-      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql  # loaded on FIRST boot only
+      - dbdata:/var/lib/mysql
+      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
-  # optional web UI at http://localhost:8080
   phpmyadmin:
     image: phpmyadmin
     environment:
