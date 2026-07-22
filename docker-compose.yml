@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root          # container root password
+      MYSQL_DATABASE: tcg_card_art       # DB created on first boot
+    ports:
+      - "3307:3306"                      # host:container — 3307 avoids clashing with XAMPP's 3306
+    volumes:
+      - dbdata:/var/lib/mysql            # actual data — persists, NOT in git
+      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql  # loaded on FIRST boot only
+
+  # optional web UI at http://localhost:8080
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
